@@ -11,7 +11,8 @@ export default {
         headerColor:"#1D1D35",
         btnColor:"#00ADEE",
         footerBg:"#E5F7FD",
-        textColor:"#7D7E82"
+        textColor:"#7D7E82",
+        borderColor:"#F2F2F2"
         
       }
     },

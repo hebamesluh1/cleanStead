@@ -52,8 +52,8 @@ export default function Header() {
                   </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <a href="/#"
-                    type="button"
+                  <a 
+                  href="/#"
                     className="relative rounded-full bg-btnColor px-4 py-2 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     احجز الآن
