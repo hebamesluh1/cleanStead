@@ -9,7 +9,10 @@ export default {
     extend: {
       colors:{
         headerColor:"#1D1D35",
-        btnColor:"#00ADEE"
+        btnColor:"#00ADEE",
+        footerBg:"#E5F7FD",
+        textColor:"#7D7E82"
+        
       }
     },
   },
