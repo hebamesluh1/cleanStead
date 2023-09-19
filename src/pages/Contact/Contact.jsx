@@ -5,6 +5,7 @@ import effect from "../../assets/images/header.svg";
 
 import Input from "../../components/Input";
 import Btn from "../../components/Btn";
+import Error from "../../components/Error";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -61,7 +62,7 @@ const Contact = () => {
     <div className="flex justify-between flex-wrap mt-10 mb-10 gap-3">
       <ToastContainer />
       <div className="form flex-1 ms:flex-full p-5">
-        <form onSubmit={formik.handleSubmit}>
+        {/* <form onSubmit={formik.handleSubmit}>
           <h1 className="flex items-center gap-3 text-custom-40 overflow-hidden">
             تواصل معنا
             <img src={effect} alt="effect" />
@@ -99,7 +100,7 @@ const Contact = () => {
             area
           />
           <Btn type="submit" text="أرسل" />
-        </form>
+        </form> */}
       </div>
       <div className="images flex-1 hidden md:block">
         <img src={img} alt="img" />
