@@ -1,89 +1,47 @@
+import { useState } from 'react';
 import Logo from '../../assets/images/logo.svg';
 
 import { navigation } from '../../mock/data';
 
-import { Disclosure } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { Link } from 'react-router-dom';
+import Btn from '../Btn';
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
   return (
-    <Disclosure as="nav">
-      {({ open }) => (
-        <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-btnColor hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="absolute -inset-0.5" />
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
-              </div>
-              <div className="flex flex-1 items-center justify-between sm-justify-center md-justify-between  sm:items-stretch">
-                <div className="flex flex-shrink-0 items-center">
-                  <a href="/home">
-                    <img src={Logo} alt="logo" />
-                  </a>
-                </div>
-                <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.id}
-                        href={item.path}
-                        className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-headerColor ',
-                          'rounded-md px-3 py-2 text-sm font-medium'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <a 
-                  href="/#"
-                    className="relative rounded-full bg-btnColor px-4 py-2 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                  >
-                    احجز الآن
-                  </a>
+    <div className='fixed w-full top-0 mx-auto lg:max-w-4xl xl:max-w-5xl z-1000'>
+      <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
+        <div className='font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
+      text-gray-800'>
+          <span className='text-3xl text-indigo-600 mr-1 pt-2'>
+            <img src={Logo} alt="" />
+          </span>
+        </div>
 
-                </div>
-              </div>
-            </div>
-          </div>
+        <div onClick={() => setOpen(!open)} className='text-3xl absolute left-8 top-6 cursor-pointer md:hidden'>
+          {open ?
+            <AiOutlineClose />
+            :
+            <AiOutlineMenu />
+          }
+        </div>
 
-          <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.id}
-                  as="a"
-                  href={item.path}
-                  className={classNames(
-                    item.current ? 'bg-btnColor text-white' : 'text-btnColor hover:bg-btnColor hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
-            </div>
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
+        <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-20 ' : 'top-[-490px]'}`}>
+          {
+            navigation.map((link) => (
+              <li key={link.id} className='md:ml-8 text-xl md:my-0 my-7 overflow-hidden'>
+                <Link to={link.path} className='text-headerColor hover:text-gray-400 duration-500'>{link.name}</Link>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div className="hidden md:block">
+          <Btn type="button" text="احجز الآن" />
+        </div>
+      </div>
+    </div>
   )
 }

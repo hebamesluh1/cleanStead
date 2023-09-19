@@ -18,7 +18,7 @@ const Router = () => {
                 element={<Layout />}>
 
                 <Route
-                    path={PATHS.HOME}
+                    path="/"
                     element={<Home />} />
 
                 <Route

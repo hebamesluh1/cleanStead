@@ -16,7 +16,7 @@ const Footer = () => {
     <div className='bg-footerBg rounded-t-2xl'>
       <div className='p-5'>
         <div className='flex justify-between flex-wrap  border-b border-white border-solid border-10 pb-10'>
-          <div className="summary">
+          <div className="summary sm:my-2">
             <div className="logo">
               <img src={logo} alt="footer-Logo" />
             </div>
@@ -24,7 +24,7 @@ const Footer = () => {
               <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص.</p>
             </div>
           </div>
-          <div className="services">
+          <div className="services ms:my-2">
             <div className="title">
               <h3 className='pb-3'>خدماتنا</h3>
               <ul className='text-textColor leading-7 text-16'>
@@ -37,7 +37,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="contact">
+          <div className="contact ms:my-2">
             <div className="title">
               <h3 className='pb-3'>تواصل معنا</h3>
               <ul>
@@ -55,7 +55,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="follow">
+          <div className="follow ms:my-2">
             <div className="title">
               <h3 className='pb-3'>تابعنا على</h3>
               <div className="socials">

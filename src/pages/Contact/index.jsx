@@ -63,7 +63,7 @@ const Contact = () => {
       <ToastContainer />
       <div className="form flex-1 ms:flex-full p-5">
         <form onSubmit={formik.handleSubmit}>
-          <h1 className='flex items-center gap-3 text-custom-40'>
+          <h1 className='flex items-center gap-3 text-custom-40 overflow-hidden'>
             تواصل معنا
             <img src={effect} alt="effect" />
           </h1>
@@ -79,7 +79,7 @@ const Contact = () => {
           />
           {formik.touched.service && formik.errors.service && <Error msg={formik.errors.service} />}
 
-          <div className='flex gap-5'>
+          <div className='flex gap-5 justify-between'>
             <div>
               <Input
                 label="الاسم"

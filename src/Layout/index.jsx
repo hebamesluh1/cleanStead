@@ -14,9 +14,11 @@ const Layout = () => {
     return (
         <Container>
             <Header />
+            <main style={{paddingTop:"100px"}}>
             <Suspense fallback="Loading...">
                 <Outlet />
             </Suspense>
+            </main>
             <Footer />
         </Container>
     )
