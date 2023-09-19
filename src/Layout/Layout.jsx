@@ -10,7 +10,7 @@ const Layout = () => {
     return (
         <Container>
             <Header />
-            <main style={{paddingTop:"5%"}}>
+            <main style={{paddingTop:"10%"}}>
             <Suspense fallback="Loading...">
                 <Outlet />
             </Suspense>

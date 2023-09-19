@@ -12,7 +12,7 @@ import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Contact = () => {
+const ContactPage = () => {
   const validationSchema = Yup.object({
     service: Yup.string().required("هذا الحقل مطلوب"),
     name: Yup.string()
@@ -100,7 +100,7 @@ const Contact = () => {
             {...restInputProps("msg")}
             area
           />
-          <Btn type="submit" text="أرسل" />
+          <Btn type="submit" text="أرسل" className="px-8 py-3"/>
         </form>
       </div>
       <div className="images flex-1 hidden md:block">
@@ -110,4 +110,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactPage;

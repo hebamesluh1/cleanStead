@@ -4,11 +4,11 @@ import { Route, Routes } from 'react-router-dom'
 import Layout from '../Layout';
 import { PATHS } from '../mock/data';
 
-const Home = lazy(() => import('../pages/Home'));
-const About = lazy(() => import('../pages/About'));
-const Services = lazy(() => import('../pages/Services'));
-const Contact = lazy(() => import('../pages/Contact'));
-const NotFound = lazy(() => import('../pages/NotFound'));
+const Home = lazy(() => import('../pages/HomePage'));
+const About = lazy(() => import('../pages/AboutPage'));
+const Services = lazy(() => import('../pages/ServicesPage'));
+const Contact = lazy(() => import('../pages/ContactPage'));
+const NotFound = lazy(() => import('../pages/NotFoundPage'));
 
 
 const Router = () => {
