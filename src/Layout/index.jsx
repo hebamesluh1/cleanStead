@@ -14,7 +14,7 @@ const Layout = () => {
     return (
         <Container>
             <Header />
-            <main style={{paddingTop:"100px"}}>
+            <main style={{paddingTop:"5%"}}>
             <Suspense fallback="Loading...">
                 <Outlet />
             </Suspense>

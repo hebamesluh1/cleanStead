@@ -12,7 +12,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   return (
     <div className='fixed w-full top-0 mx-auto lg:max-w-4xl xl:max-w-5xl z-1000'>
-      <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
+      <div className='md:flex items-center justify-between bg-white py-4 ms:px-10 px-0'>
         <div className='font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
       text-gray-800'>
           <span className='text-3xl text-indigo-600 mr-1 pt-2'>
