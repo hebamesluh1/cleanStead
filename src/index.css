@@ -19,4 +19,18 @@
   .text-custom-40 {
     font-size: 40px;
   }
+  .basis {
+    flex-basis: 32%;
+  }
+}
+
+.shadow{
+  box-shadow: 0px 8px 24px 0px #00ADEE1A;
+}
+.serviceDesc::before {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 70px;
+  background-color: #8fc930;
 }

@@ -1,10 +1,19 @@
 import React from 'react'
+import {
+    AdvantagesSection,
+    HeroSection,
+    ReviewSection,
+    ServiceSection
+} from './components'
 
 const HomePage = () => {
     return (
-        <div className='pt-10 text-center'>
-            
-        </div>
+        <>
+            <HeroSection />
+            <ServiceSection />
+            <AdvantagesSection />
+            <ReviewSection />
+        </>
     )
 }
 
