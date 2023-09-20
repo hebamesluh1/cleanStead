@@ -7,21 +7,14 @@ import Input from "../../components/Input";
 import Btn from "../../components/Btn";
 
 import { useFormik } from "formik";
-import * as Yup from "yup";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { contactSchema } from "../../validation/validationSchemas";
+import { useRestInputProps } from "../../utils/useRestProps";
+
 const ContactPage = () => {
-  const validationSchema = Yup.object({
-    service: Yup.string().required("هذا الحقل مطلوب"),
-    name: Yup.string()
-      .min(2, "النص قصير جدًا")
-      .max(50, "النص طويل جدًا")
-      .required("هذا الحقل مطلوب"),
-    phone: Yup.number().required("هذا الحقل مطلوب"),
-    msg: Yup.string().max(1000, "النص طويل جدًا").required("هذا الحقل مطلوب"),
-  });
 
   const initialValues = {
     service: "",
@@ -43,21 +36,10 @@ const ContactPage = () => {
   const formik = useFormik({
     initialValues,
     onSubmit,
-    validationSchema,
+    validationSchema: contactSchema,
   });
 
-  const restInputProps = (key) => {
-    return {
-      name: key,
-      onChange: formik.handleChange,
-      value: formik.values[key],
-      onBlur: formik.handleBlur,
-      error: formik.touched[key] && formik.errors[key],
-      errorMessage:
-        formik.touched[key] && formik.errors[key] ? formik.errors[key] : "",
-    };
-  };
-
+  const restInputProps = (key) => useRestInputProps(formik, key);
 
   return (
     <div className="flex justify-between flex-wrap mt-10 mb-10 gap-3">
