@@ -39,7 +39,7 @@ export default function Header() {
         </ul>
 
         <div className="hidden md:block">
-          <Btn type="button" text="احجز الآن" />
+          <Btn type="button" text="احجز الآن" className="bg-btnColor text-white" />
         </div>
       </div>
     </div>
