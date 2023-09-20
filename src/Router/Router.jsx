@@ -14,13 +14,17 @@ const NotFound = lazy(() => import('../pages/NotFoundPage'));
 const Router = () => {
     return (
         <Routes>
-            <Route
+                    <Route
                 path='/'
-                element={<Layout />}>
+                element={<Layout home/>}>
+            <Route
+                path="/"
+                element={<Home />} />
+                </Route>
 
                 <Route
-                    path="/"
-                    element={<Home />} />
+                path='/'
+                element={<Layout/>}>
 
                 <Route
                     path={PATHS.ABOUT}

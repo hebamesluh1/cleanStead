@@ -6,10 +6,12 @@ import { navigation } from '../../mock/data';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { Link } from 'react-router-dom';
 import Btn from '../Btn';
+import Modals from '../Modal';
 
 
-export default function Header() {
+export default function Header({ home }) {
   const [open, setOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className='fixed w-full top-0 mx-auto max-w-7xl md:max-w-4xl z-1000'>
       <div className='md:flex items-center justify-between bg-white py-4 ms:px-10 px-0'>
@@ -38,8 +40,11 @@ export default function Header() {
           }
         </ul>
 
-        <div className="hidden md:block">
-          <Btn type="button" text="احجز الآن" />
+        <div className="hidden md:flex gap-4">
+          {home && <Btn type="button" text="دخول" className="text-btnColor border border-btnColor" onClick={() => { setIsModalOpen(true) }} />}
+          <Modals isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+
+          <Btn type="button" text="احجز الآن" className="bg-btnColor text-white" />
         </div>
       </div>
     </div>

@@ -2,18 +2,21 @@ import React, { Suspense } from 'react'
 
 import { Outlet } from 'react-router-dom'
 
-import {Header,Footer,Container} from '../components/index'
+import { Header, Footer, Container } from '../components/index'
 
 
 
-const Layout = () => {
+const Layout = ({ home }) => {
     return (
         <Container>
-            <Header />
-            <main style={{paddingTop:"10%"}}>
-            <Suspense fallback="Loading...">
-                <Outlet />
-            </Suspense>
+            {home ?
+                <Header home /> :
+                <Header />
+            }
+            <main style={{ paddingTop: "10%" }}>
+                <Suspense fallback="Loading...">
+                    <Outlet />
+                </Suspense>
             </main>
             <Footer />
         </Container>
