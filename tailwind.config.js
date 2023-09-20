@@ -16,7 +16,8 @@ export default {
         titleHero:"#8FC930",
         cardTitle:"#303C38",
         descFont:"#6D6E71",
-        signature:"#2F3239"
+        signature:"#2F3239",
+        iconsColor:"#CCD2E3"
       }
     },
   },

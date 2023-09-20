@@ -100,7 +100,7 @@ const ContactPage = () => {
             {...restInputProps("msg")}
             area
           />
-          <Btn type="submit" text="أرسل" className="px-8 py-3"/>
+          <Btn type="submit" text="أرسل" className="px-8 py-3 bg-btnColor text-white" />
         </form>
       </div>
       <div className="images flex-1 hidden md:block">
