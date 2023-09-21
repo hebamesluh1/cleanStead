@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Btn from '../../../Btn'
 import Input from '../../../Input'
@@ -6,19 +6,25 @@ import Input from '../../../Input'
 import { useFormik } from 'formik';
 
 import { loginSchema } from '../../../../validation/validationSchemas';
-import { useRestInputProps } from '../../../../utils/useRestProps';
+import { useRestInputProps } from '../../../../hooks/useRestProps';
+import Error from '../../../Error';
+import { useAuthContext } from './../../../../context/AuthContext';
 
 
 
 const Login = ({ className }) => {
+
+    const { loading, error, login } = useAuthContext();
 
     const initialValues = {
         email: "",
         password: "",
     };
 
-    const onSubmit = () => {
-        console.log("submit")
+    const onSubmit = async () => {
+        console.log("submit");
+        const { email, password } = formik.values;
+        await login(email, password);
     }
 
     const formik = useFormik({
@@ -32,6 +38,9 @@ const Login = ({ className }) => {
     return (
         <div className={` ${className}`}>
             <form onSubmit={formik.handleSubmit}>
+                {error &&
+                    <Error msg={error} className="text-center" />
+                }
                 <Input
                     type="text"
                     placeholder="الايميل"
@@ -49,7 +58,7 @@ const Login = ({ className }) => {
                     {...restInputProps("password")}
                 />
                 <div className='my-3'>
-                    <Btn text="دخول" className="w-full bg-btnColor text-white" />
+                    <Btn text={loading ? "Loading..." : "دخول"} className="w-full bg-btnColor text-white" type="submit" />
                 </div>
             </form>
         </div>

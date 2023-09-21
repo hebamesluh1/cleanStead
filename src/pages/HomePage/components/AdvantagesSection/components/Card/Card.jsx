@@ -1,9 +1,9 @@
 import React from 'react'
 import img from '../../../../../../assets/images/Chart_alt.png'
 
-const Card = ({img,title,desc}) => {
+const Card = ({ img, title, desc }) => {
     return (
-        <div className='flex gap-2 my-3'>
+        <div className='flex gap-2 my-3 items-center'>
             <div className="img p-3 bg-footerBg rounded-lg">
                 <img src={img} alt="" />
             </div>

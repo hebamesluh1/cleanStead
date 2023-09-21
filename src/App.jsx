@@ -1,11 +1,14 @@
 import { Suspense } from "react"
 import Router from "./Router"
+import AuthProvider from "./context/AuthContext"
 
 function App() {
 
   return (
     <Suspense fallback="loading..">
-      <Router/>
+      <AuthProvider>
+        <Router />
+      </AuthProvider>
     </Suspense>
   )
 }

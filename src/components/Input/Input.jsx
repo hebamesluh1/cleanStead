@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Error from "../Error";
 
 import { HiOutlineMail } from "react-icons/hi";
 import { IoPersonOutline } from 'react-icons/io5';
 import { BsTelephone } from 'react-icons/bs';
-import { AiOutlineEyeInvisible, AiOutlineLock } from "react-icons/ai";
+import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlineLock } from "react-icons/ai";
 
 const Input = ({
   area,
@@ -23,8 +23,14 @@ const Input = ({
   phone,
   pass
 }) => {
+
+  const [showToggle, setToggle] = useState(false);
+
+  const toggle = () => {
+    setToggle(!showToggle);
+  }
   return (
-    <div className="w-full pt-5 relative">
+    <div className={`w-full pt-5 ${icons && "relative"}`}>
       <label htmlFor="">{label}</label>
       {area ? (
         <textarea
@@ -36,7 +42,8 @@ const Input = ({
           onChange={onChange}
           value={value}
           onBlur={onBlur}
-        ></textarea>
+        >
+        </textarea>
       ) : (
         <>
           {icons &&
@@ -48,9 +55,13 @@ const Input = ({
             </div>
           }
           <input
-            className={`w-full border-2 border-solid ${error ? "border-red-500" : "border-borderColor"
-              } rounded-lg  ${icons ? "py-2 px-10" : "p-2"}`}
-            type={type}
+            className={`w-full border-2 border-solid rounded-lg  ${error ? "border-red-500" : "border-borderColor"
+              } ${icons ? "py-2 px-10" : "p-2"}`}
+            type={type === 'password' ?
+              !showToggle ?
+                "password" :
+                "text"
+              : type}
             placeholder={placeholder}
             name={name}
             onChange={onChange}
@@ -59,7 +70,13 @@ const Input = ({
           />
           {icons &&
             <div className="absolute top-[57px] left-[10px] text-iconsColor text-xl">
-              {pass && <AiOutlineEyeInvisible />}
+              {pass ?
+                !showToggle ?
+                  <AiOutlineEyeInvisible onClick={toggle} className="cursor-pointer" /> :
+                  <AiOutlineEye onClick={toggle} className="cursor-pointer" />
+                :
+                ""
+              }
             </div>
           }
         </>
