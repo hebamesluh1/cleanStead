@@ -2,16 +2,16 @@ import React, { Suspense } from 'react'
 
 import { Outlet } from 'react-router-dom'
 
-import { Header, Footer, Container } from '../components/index'
+import { Header, Footer, Container, Spinner } from '../components'
 
 
 
-const Layout = ({authorized}) => {
+const Layout = () => {
     return (
         <Container>
-            <Header authorized={authorized} />
+            <Header />
             <main style={{ paddingTop: "10%" }}>
-                <Suspense fallback="Loading...">
+                <Suspense fallback={<Spinner />}>
                     <Outlet />
                 </Suspense>
             </main>

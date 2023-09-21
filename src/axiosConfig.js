@@ -1,9 +1,9 @@
-import axios from "axios";
+//firstly it work but after some time stoped !!!! :( 
 
-axios.defaults.baseURL = "https://student.valuxapps.com/api/";
-axios.defaults.headers.common["Content-Type"] = "application/json";
-axios.defaults.headers.common["lang"] = "ar";
 
-export const setAccessToken = (token) => {
-  axios.defaults.headers.common["Authorization"] = token;
-};
+// import axios from "axios";
+// import { API_PATH } from "./config/api";
+
+// axios.defaults.baseURL = `${API_PATH}`;
+// axios.defaults.headers.common["Content-Type"] = "application/json";
+// axios.defaults.headers.common["lang"] = "ar";

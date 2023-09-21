@@ -10,7 +10,7 @@ import { loginSchema } from '../../../../validation/validationSchemas';
 import { useAuthContext } from '../../../../context/AuthContext';
 import { useRestInputProps } from '../../../../hooks/useRestProps';
 
-import axios from 'axios';
+import { loginUser } from '../../../../services/authServices';
 
 
 
@@ -24,20 +24,20 @@ const Login = ({ className, modal }) => {
     };
 
     const onSubmit = async ({ email, password }) => {
-        setLoading(true);
-        const res = await axios
-            .post(`https://student.valuxapps.com/api/login`, { email, password })
-            .catch((err) => {
-                console.log(err);
-            })
-            .finally(() => setLoading(false));
-        if (res.data.status) {
-            setToken(res.data.token)
-            setError("");
-            login();
-            modal(false);
-        } else {
-            setError(res.data.message)
+        try {
+            setLoading(true);
+            const { success, token, message } = await loginUser({ email, password });
+            if (success) {
+                setError('');
+                localStorage.setItem('token', token);
+                login();
+                modal(false);
+                setToken(token)
+            } else {
+                setError(message);
+            }
+        } finally {
+            setLoading(false);
         }
     }
 

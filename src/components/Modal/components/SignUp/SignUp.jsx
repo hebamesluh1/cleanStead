@@ -10,7 +10,7 @@ import { signupSchems } from '../../../../validation/validationSchemas';
 import { useRestInputProps } from '../../../../hooks/useRestProps';
 import { useAuthContext } from '../../../../context/AuthContext';
 
-import axios from 'axios';
+import { registerUser } from '../../../../services/authServices';
 
 
 
@@ -26,22 +26,29 @@ const SignUp = ({ className, modal }) => {
     };
 
     const onSubmit = async ({ email, password, username, phone }) => {
-        setLoading(true);
-        const res = await axios
-            .post(`https://student.valuxapps.com/api/register`, { email, password, name: username, phone })
-            .catch((err) => {
-                console.log(err);
-            })
-            .finally(() => setLoading(false));
-        if (res.data.status) {
-            console.log(res.data.status);
-            setError("");
-            setToken(res.data.token);
-            localStorage.setItem("token", res.data.token);
-            login();
-            modal(false);
-        } else {
-            setError(res.data.message)
+        try {
+            setLoading(true);
+
+            const { success, token, message } = await registerUser({
+                email,
+                password,
+                username,
+                phone,
+            });
+
+            if (success) {
+                setError('');
+                localStorage.setItem('token', token);
+                setError("");
+                setToken(token);
+                login();
+                modal(false);
+
+            } else {
+                setError(message);
+            }
+        } finally {
+            setLoading(false);
         }
     }
 
