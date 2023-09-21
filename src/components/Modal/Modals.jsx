@@ -56,8 +56,8 @@ const Modals = ({ isOpen, setIsModalOpen }) => {
                 </div>
             </div>
             <div className="content">
-                <SignUp className={`${activeTab === 'signup' ? activeContent : "hidden"}`} />
-                <Login className={`${activeTab === 'login' ? activeContent : "hidden"}`} />
+                <SignUp className={`${activeTab === 'signup' ? activeContent : "hidden"}`} modal={setIsModalOpen} />
+                <Login className={`${activeTab === 'login' ? activeContent : "hidden"}`} modal={setIsModalOpen} />
             </div>
         </Modal>
     );

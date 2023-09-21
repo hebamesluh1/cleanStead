@@ -6,13 +6,10 @@ import { Header, Footer, Container } from '../components/index'
 
 
 
-const Layout = ({ home }) => {
+const Layout = ({authorized}) => {
     return (
         <Container>
-            {home ?
-                <Header home /> :
-                <Header />
-            }
+            <Header authorized={authorized} />
             <main style={{ paddingTop: "10%" }}>
                 <Suspense fallback="Loading...">
                     <Outlet />

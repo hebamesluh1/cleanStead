@@ -8,14 +8,15 @@ import { useFormik } from 'formik';
 
 import { signupSchems } from '../../../../validation/validationSchemas';
 import { useRestInputProps } from '../../../../hooks/useRestProps';
+import { useAuthContext } from '../../../../context/AuthContext';
+
 import axios from 'axios';
 
 
 
-const SignUp = ({ className }) => {
+const SignUp = ({ className, modal }) => {
 
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    const { loading, setLoading, error, setError, setToken, login } = useAuthContext();
 
     const initialValues = {
         username: "",
@@ -27,12 +28,21 @@ const SignUp = ({ className }) => {
     const onSubmit = async ({ email, password, username, phone }) => {
         setLoading(true);
         const res = await axios
-            .post(`https://student.valuxapps.com/api/register`, { email, password, name:username, phone })
+            .post(`https://student.valuxapps.com/api/register`, { email, password, name: username, phone })
             .catch((err) => {
                 console.log(err);
             })
             .finally(() => setLoading(false));
-        setError(res.data.message)
+        if (res.data.status) {
+            console.log(res.data.status);
+            setError("");
+            setToken(res.data.token);
+            localStorage.setItem("token", res.data.token);
+            login();
+            modal(false);
+        } else {
+            setError(res.data.message)
+        }
     }
 
     const formik = useFormik({

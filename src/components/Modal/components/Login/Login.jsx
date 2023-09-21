@@ -1,23 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import Btn from '../../../Btn'
 import Input from '../../../Input'
+import Error from '../../../Error';
 
 import { useFormik } from 'formik';
 
 import { loginSchema } from '../../../../validation/validationSchemas';
+import { useAuthContext } from '../../../../context/AuthContext';
 import { useRestInputProps } from '../../../../hooks/useRestProps';
-import Error from '../../../Error';
-// import { useAuthContext } from './../../../../context/AuthContext';
+
 import axios from 'axios';
 
 
 
-const Login = ({ className }) => {
+const Login = ({ className, modal }) => {
 
-    // const { loading, error, login } = useAuthContext();
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    const { loading, setLoading, error, setError, setToken, login } = useAuthContext();
 
     const initialValues = {
         email: "",
@@ -32,7 +31,14 @@ const Login = ({ className }) => {
                 console.log(err);
             })
             .finally(() => setLoading(false));
-        setError(res.data.message)
+        if (res.data.status) {
+            setToken(res.data.token)
+            setError("");
+            login();
+            modal(false);
+        } else {
+            setError(res.data.message)
+        }
     }
 
     const formik = useFormik({
