@@ -45,7 +45,7 @@ export default function Header() {
             ))
           }
           <li>
-            {authorized ? <Btn type="button" text="خروج" className="text-btnColor border border-btnColor block md:hidden" /> : <Btn type="button" text="دخول" className="text-btnColor border border-btnColor block md:hidden" onClick={() => { setIsModalOpen(true) }} />}
+            {authorized ? <Btn type="button" text="خروج" className="text-btnColor border border-btnColor block md:hidden"  onClick={logout} /> : <Btn type="button" text="دخول" className="text-btnColor border border-btnColor block md:hidden" onClick={() => { setIsModalOpen(true) }} />}
           </li>
           <li>
             <Btn type="button" text="احجز الآن" className="bg-btnColor text-white block md:hidden my-5" />
