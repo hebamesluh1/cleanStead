@@ -9,7 +9,7 @@ export const contactSchema = Yup.object({
     .required("هذا الحقل مطلوب"),
 
   phone: Yup.string()
-    .matches(/^[0-9]{10}$/, "رقم الهاتف يجب أن يحتوي على 10 أرقام")
+    .matches(/^(?:(?:\+|00)[1-9]\d{0,2})?[1-9]\d{1,14}$/, "رقم هاتف غير صحيح")
     .required("هذا الحقل مطلوب"),
 
   msg: Yup.string().max(1000, "النص طويل جدًا").required("هذا الحقل مطلوب"),
@@ -31,7 +31,7 @@ export const signupSchems = Yup.object({
     .required("هذا الحقل مطلوب"),
 
   phone: Yup.string()
-    .matches(/^[0-9]{10}$/, "رقم الهاتف يجب أن يحتوي على 10 أرقام")
+    .matches(/^(?:(?:\+|00)[1-9]\d{0,2})?[1-9]\d{1,14}$/, "رقم هاتف غير صحيح")
     .required("هذا الحقل مطلوب"),
 
   username: Yup.string()

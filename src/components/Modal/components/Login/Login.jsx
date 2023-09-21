@@ -8,23 +8,31 @@ import { useFormik } from 'formik';
 import { loginSchema } from '../../../../validation/validationSchemas';
 import { useRestInputProps } from '../../../../hooks/useRestProps';
 import Error from '../../../Error';
-import { useAuthContext } from './../../../../context/AuthContext';
+// import { useAuthContext } from './../../../../context/AuthContext';
+import axios from 'axios';
 
 
 
 const Login = ({ className }) => {
 
-    const { loading, error, login } = useAuthContext();
+    // const { loading, error, login } = useAuthContext();
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
     const initialValues = {
         email: "",
         password: "",
     };
 
-    const onSubmit = async () => {
-        console.log("submit");
-        const { email, password } = formik.values;
-        await login(email, password);
+    const onSubmit = async ({ email, password }) => {
+        setLoading(true);
+        const res = await axios
+            .post(`https://student.valuxapps.com/api/login`, { email, password })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => setLoading(false));
+        setError(res.data.message)
     }
 
     const formik = useFormik({

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Btn from '../../../Btn'
 import Input from '../../../Input'
@@ -8,13 +8,14 @@ import { useFormik } from 'formik';
 
 import { signupSchems } from '../../../../validation/validationSchemas';
 import { useRestInputProps } from '../../../../hooks/useRestProps';
+import axios from 'axios';
 
-import { useAuthContext } from '../../../../context/AuthContext';
 
 
 const SignUp = ({ className }) => {
 
-    const { loading, error, signup } = useAuthContext();
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
     const initialValues = {
         username: "",
@@ -23,9 +24,15 @@ const SignUp = ({ className }) => {
         password: "",
     };
 
-    const onSubmit = async () => {
-        const { email, password, username, phone } = formik.values;
-        await signup(email, password, username, phone);
+    const onSubmit = async ({ email, password, username, phone }) => {
+        setLoading(true);
+        const res = await axios
+            .post(`https://student.valuxapps.com/api/register`, { email, password, name:username, phone })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => setLoading(false));
+        setError(res.data.message)
     }
 
     const formik = useFormik({

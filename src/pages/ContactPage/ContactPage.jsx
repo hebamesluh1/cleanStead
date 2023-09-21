@@ -12,7 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { contactSchema } from "../../validation/validationSchemas";
-import { useRestInputProps } from "../../utils/useRestProps";
+import { useRestInputProps } from "../../hooks/useRestProps";
 
 const ContactPage = () => {
 

@@ -30,7 +30,7 @@
 .serviceDesc::before {
   content: "";
   display: block;
-  width: 2px;
+  width: 3px;
   height: 70px;
   background-color: #8fc930;
 }
