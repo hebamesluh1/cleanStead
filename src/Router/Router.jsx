@@ -1,5 +1,5 @@
 import React, { lazy } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 import Layout from '../Layout';
 import { PATHS } from '../mock/data';
@@ -35,22 +35,19 @@ const Router = () => {
                         <Route
                             path={PATHS.CONTACT}
                             element={<Contact />} />
-                        <Route
-                            path='*'
-                            element={<NotFound />} />
 
                     </>
                     :
                     <>
                         <Route
                             path={PATHS.HOME}
-                            element={<Home />} />
-
-                        <Route
-                            path='*'
-                            element={<Home />} />
+                            element={<Navigate to={PATHS.HOME} />} />
                     </>
                 }
+                <Route path={PATHS.NOTFOUND} element={<NotFound />} />
+                <Route
+                    path='*'
+                    element={<Navigate to={PATHS.NOTFOUND} />} />
 
             </Route>
         </Routes>

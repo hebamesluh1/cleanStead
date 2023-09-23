@@ -1,19 +1,19 @@
 import axios from "axios";
 import { API_PATH } from "../config/api";
 
-export const registerUser = async ({ email, password, username, phone }) => {
+const registerUser = async ({ email, password, username, phone }) => {
   try {
-    const response = await axios.post(`${API_PATH}/register`, {
+    const { data } = await axios.post(`${API_PATH}/register`, {
       email,
       password,
       name: username,
       phone,
     });
 
-    if (response.data.status) {
-      return { success: true, token: response.data.data.token };
+    if (data.status) {
+      return { success: true, token: data.data.token };
     } else {
-      return { success: false, message: response.data.message };
+      return { success: false, message: data.message };
     }
   } catch (error) {
     console.error(error);
@@ -21,17 +21,19 @@ export const registerUser = async ({ email, password, username, phone }) => {
   }
 };
 
-export const loginUser = async ({ email, password }) => {
+const loginUser = async ({ email, password }) => {
   try {
-    const response = await axios.post(`${API_PATH}/login`, { email, password });
+    const { data } = await axios.post(`${API_PATH}/login`, { email, password });
 
-    if (response.data.status) {
-      return { success: true, token: response.data.data.token };
+    if (data.status) {
+      return { success: true, token: data.data.token };
     } else {
-      return { success: false, message: response.data.message };
+      return { success: false, message: data.message };
     }
   } catch (error) {
     console.error(error);
     throw error;
   }
 };
+
+export { loginUser, registerUser };

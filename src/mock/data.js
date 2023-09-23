@@ -19,6 +19,7 @@ export const PATHS = {
   ABOUT: "/about",
   SERVICES: "/services",
   CONTACT: "/contact",
+  NOTFOUND:"404"
 };
 
 export const navigation = [
