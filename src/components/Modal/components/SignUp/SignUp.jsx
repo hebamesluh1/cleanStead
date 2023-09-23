@@ -11,6 +11,7 @@ import { useRestInputProps } from '../../../../hooks/useRestProps';
 import { useAuthContext } from '../../../../context/AuthContext';
 
 import { registerUser } from '../../../../services/authServices';
+import { signUpInput } from '../../../../constant/inputData';
 
 
 
@@ -60,44 +61,21 @@ const SignUp = ({ className, modal }) => {
 
     const restInputProps = (key) => useRestInputProps(formik, key);
 
+
+
     return (
         <div className={` ${className}`}>
             {error &&
                 <Error msg={error} className="text-center" />
             }
             <form onSubmit={formik.handleSubmit}>
-                <Input
-                    type="text"
-                    placeholder="الاسم"
-                    label="أدخل الاسم"
-                    icons
-                    user
-                    {...restInputProps("username")}
-                />
-                <Input
-                    type="email"
-                    placeholder="أدخل الايميل"
-                    label="الايميل"
-                    icons
-                    mail
-                    {...restInputProps("email")}
-                />
-                <Input
-                    type="tel"
-                    placeholder="رقم الجوال"
-                    label="رقم الجوال"
-                    icons
-                    phone
-                    {...restInputProps("phone")}
-                />
-                <Input
-                    type="password"
-                    placeholder="كلمة المرور"
-                    label="أدخل كلمة المرور "
-                    icons
-                    pass
-                    {...restInputProps("password")}
-                />
+                {signUpInput.map((input) => (
+                    <Input
+                        key={input.id}
+                        {...input}
+                        {...restInputProps(`${input.name}`)}
+                    />
+                ))}
                 <div className='my-3'>
                     <Btn text={`${loading ? "loading..." : "انشاء حساب"}`} className="w-full bg-btnColor text-white" type="submit" />
                 </div>

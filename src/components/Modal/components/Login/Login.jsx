@@ -11,6 +11,7 @@ import { useAuthContext } from '../../../../context/AuthContext';
 import { useRestInputProps } from '../../../../hooks/useRestProps';
 
 import { loginUser } from '../../../../services/authServices';
+import { loginInput } from '../../../../constant/inputData';
 
 
 
@@ -49,28 +50,20 @@ const Login = ({ className, modal }) => {
 
     const restInputProps = (key) => useRestInputProps(formik, key);
 
+
     return (
         <div className={` ${className}`}>
             <form onSubmit={formik.handleSubmit}>
                 {error &&
                     <Error msg={error} className="text-center" />
                 }
-                <Input
-                    type="text"
-                    placeholder="الايميل"
-                    label="أدخل الايميل"
-                    icons
-                    mail
-                    {...restInputProps("email")}
-                />
-                <Input
-                    type="password"
-                    placeholder="كلمة المرور"
-                    label="أدخل كلمة المرور "
-                    icons
-                    pass
-                    {...restInputProps("password")}
-                />
+                {loginInput.map((input) =>
+                (<Input
+                    key={input.id}
+                    {...input}
+                    {...restInputProps(`${input.name}`)}
+                />)
+                )}
                 <div className='my-3'>
                     <Btn text={loading ? "Loading..." : "دخول"} className="w-full bg-btnColor text-white" type="submit" />
                 </div>
