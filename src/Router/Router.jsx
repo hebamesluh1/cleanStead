@@ -44,12 +44,12 @@ const Router = () => {
                             element={<Navigate to={PATHS.HOME} />} />
                     </>
                 }
-                <Route path={PATHS.NOTFOUND} element={<NotFound />} />
-                <Route
-                    path='*'
-                    element={<Navigate to={PATHS.NOTFOUND} />} />
-
             </Route>
+
+            <Route path={PATHS.NOTFOUND} element={<NotFound />} />
+            <Route
+                path='*'
+                element={<Navigate to={PATHS.NOTFOUND} />} />
         </Routes>
     )
 }

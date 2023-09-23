@@ -17,7 +17,7 @@ import { loginInput } from '../../../../constant/inputData';
 
 const Login = ({ className, modal }) => {
 
-    const { loading, setLoading, error, setError, setToken, login } = useAuthContext();
+    const { loading, setLoading, error, setError, login } = useAuthContext();
 
     const initialValues = {
         email: "",
@@ -30,10 +30,8 @@ const Login = ({ className, modal }) => {
             const { success, token, message } = await loginUser({ email, password });
             if (success) {
                 setError('');
-                localStorage.setItem('token', token);
-                login();
+                login(token);
                 modal(false);
-                setToken(token)
             } else {
                 setError(message);
             }

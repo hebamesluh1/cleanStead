@@ -17,7 +17,7 @@ import { signUpInput } from '../../../../constant/inputData';
 
 const SignUp = ({ className, modal }) => {
 
-    const { loading, setLoading, error, setError, setToken, login } = useAuthContext();
+    const { loading, setLoading, error, setError, login } = useAuthContext();
 
     const initialValues = {
         username: "",
@@ -39,12 +39,8 @@ const SignUp = ({ className, modal }) => {
 
             if (success) {
                 setError('');
-                localStorage.setItem('token', token);
-                setError("");
-                setToken(token);
-                login();
+                login(token);
                 modal(false);
-
             } else {
                 setError(message);
             }

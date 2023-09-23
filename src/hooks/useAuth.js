@@ -1,37 +1,75 @@
-import { useState, useEffect } from "react";
+import { useReducer, useEffect } from "react";
+
+
+const authReducer = (state, action) => {
+  switch (action.type) {
+    case "LOGIN":
+      return {
+        ...state,
+        authorized: true,
+        token: action.token,
+      };
+    case "LOGOUT":
+      return {
+        ...state,
+        authorized: false,
+        token: "",
+      };
+    case "SET_LOADING":
+      return {
+        ...state,
+        loading: action.loading,
+      };
+    case "SET_ERROR":
+      return {
+        ...state,
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+};
 
 const useAuth = () => {
-  const [loading, setLoading] = useState(false);
-  const [authorized, setAuthorized] = useState(false);
-  const [token, setToken] = useState("");
-  const [error, setError] = useState("");
+  const initialState = {
+    loading: false,
+    authorized: false,
+    token: "",
+    error: "",
+  };
 
-  const login = () => {
-    setAuthorized(true);
+  const [state, dispatch] = useReducer(authReducer, initialState);
+
+  const login = (token) => {
+    dispatch({ type: "LOGIN", token });
+    localStorage.setItem("token", token);
   };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      setAuthorized(true);
+      login(token);
     }
   }, []);
 
   const logout = () => {
     localStorage.clear();
-    setAuthorized(false);
+    dispatch({ type: "LOGOUT" });
+  };
+
+  const setLoading = (loading) => {
+    dispatch({ type: "SET_LOADING", loading });
+  };
+
+  const setError = (error) => {
+    dispatch({ type: "SET_ERROR", error });
   };
 
   return {
-    authorized,
-    setAuthorized,
-    loading,
-    setLoading,
-    token,
-    setToken,
-    logout,
+    ...state,
     login,
-    error,
+    logout,
+    setLoading,
     setError,
   };
 };
