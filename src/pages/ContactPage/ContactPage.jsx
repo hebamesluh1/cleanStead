@@ -1,10 +1,8 @@
 import React from "react";
 
 import img from "../../assets/images/heroContact.svg";
-import effect from "../../assets/images/header.svg";
 
-import Input from "../../components/Input";
-import Btn from "../../components/Btn";
+import { Input, Btn, Title } from "../../components";
 
 import { useFormik } from "formik";
 
@@ -46,10 +44,7 @@ const ContactPage = () => {
       <ToastContainer />
       <div className="form flex-1 ms:flex-full p-5">
         <form onSubmit={formik.handleSubmit}>
-          <h1 className="flex items-center gap-3 text-custom-40 overflow-hidden">
-            تواصل معنا
-            <img src={effect} alt="effect" />
-          </h1>
+          <Title title="تواصل معنا" />
           <Input
             label="الخدمة"
             placeholder="اسم الخدمة"

@@ -13,18 +13,13 @@ import { useAuthContext } from '../../../../context/AuthContext';
 import { registerUser } from '../../../../services/authServices';
 import { signUpInput } from '../../../../constant/inputData';
 
+import { initialSignupValues } from '../../../../constant/initialValues'
+
 
 
 const SignUp = ({ className, modal }) => {
 
     const { loading, setLoading, error, setError, login } = useAuthContext();
-
-    const initialValues = {
-        username: "",
-        phone: "",
-        email: "",
-        password: "",
-    };
 
     const onSubmit = async ({ email, password, username, phone }) => {
         try {
@@ -50,7 +45,7 @@ const SignUp = ({ className, modal }) => {
     }
 
     const formik = useFormik({
-        initialValues,
+        initialValues: initialSignupValues,
         onSubmit,
         validationSchema: signupSchems,
     });

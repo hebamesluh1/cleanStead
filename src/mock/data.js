@@ -10,16 +10,18 @@ import adv2 from "../assets/images/Date_range_duotone.png";
 import adv3 from "../assets/images/Chart_alt.png";
 import adv4 from "../assets/images/Chat_alt_2.png";
 
-import rev1 from '../assets/images/customer1.png';
-import rev2 from '../assets/images/customer2.png';
-import rev3 from '../assets/images/customer3.png';
+import rev1 from "../assets/images/customer1.png";
+import rev2 from "../assets/images/customer2.png";
+import rev3 from "../assets/images/customer3.png";
+
+import services1 from "../assets/images/services.svg";
 
 export const PATHS = {
   HOME: "/",
   ABOUT: "/about",
   SERVICES: "/services",
   CONTACT: "/contact",
-  NOTFOUND:"404"
+  NOTFOUND: "404",
 };
 
 export const navigation = [
@@ -105,7 +107,7 @@ export const reviewData = [
   {
     desc: "ندرك صعوبة القيام بتنظيف السجاد من قبل النساء",
     signature: "محمد أحمد",
-    img:rev1,
+    img: rev1,
   },
   {
     desc: "ندرك صعوبة القيام بتنظيف السجاد من قبل النساء",
@@ -115,6 +117,69 @@ export const reviewData = [
   {
     desc: "ندرك صعوبة القيام بتنظيف السجاد من قبل النساء",
     signature: "محمد أحمد",
-    img:rev3,
+    img: rev3,
   },
+];
+
+export const availableServices = [
+  {
+    id: 1,
+    title: "غرفة النوم",
+    img: services1,
+  },
+  {
+    id: 2,
+    title: "غرفة النوم",
+    img: services1,
+  },
+  {
+    id: 3,
+    title: "غرفة النوم",
+    img: services1,
+  },
+  {
+    id: 4,
+    title: "غرفة النوم",
+    img: services1,
+  },
+  {
+    id: 5,
+    title: "غرفة النوم",
+    img: services1,
+  },
+  {
+    id: 6,
+    title: "غرفة النوم",
+    img: services1,
+  },
+  {
+    id: 7,
+    title: "غرفة النوم",
+    img: services1,
+  },
+  {
+    id: 8,
+    title: "غرفة النوم",
+    img: services1,
+  },
+  {
+    id: 9,
+    title: "غرفة النوم",
+    img: services1,
+  },
+  {
+    id: 10,
+    title: "غرفة النوم",
+    img: services1,
+  },
+  {
+    id: 11,
+    title: "غرفة النوم",
+    img: services1,
+  },
+  {
+    id: 12,
+    title: "غرفة النوم",
+    img: services1,
+  }
 ];

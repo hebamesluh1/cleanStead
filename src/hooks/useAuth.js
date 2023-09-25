@@ -1,4 +1,5 @@
 import { useReducer, useEffect } from "react";
+import { setAccessToken } from "../axiosConfig";
 
 
 const authReducer = (state, action) => {
@@ -43,17 +44,20 @@ const useAuth = () => {
   const login = (token) => {
     dispatch({ type: "LOGIN", token });
     localStorage.setItem("token", token);
+    setAccessToken(token)
   };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       login(token);
+      setAccessToken(token);
     }
   }, []);
 
   const logout = () => {
-    localStorage.clear();
+    localStorage.clear(); 
+    // or can write : localStorage.removeItem("token")
     dispatch({ type: "LOGOUT" });
   };
 

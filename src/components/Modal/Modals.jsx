@@ -6,10 +6,14 @@ import { SignUp, Login } from './components';
 
 Modal.setAppElement('#root');
 
+const authComponent = {
+    'signup': SignUp,
+    'login': Login
+};
+
 const Modals = ({ isOpen, setIsModalOpen }) => {
 
     const active = "text-btnColor border-b-4 border-btnColor";
-    const activeContent = "block";
 
     const [activeTab, setActiveTab] = useState('signup');
 
@@ -32,6 +36,7 @@ const Modals = ({ isOpen, setIsModalOpen }) => {
         }
     };
 
+    const Component = authComponent[activeTab];
     return (
         <Modal
             isOpen={isOpen}
@@ -56,8 +61,7 @@ const Modals = ({ isOpen, setIsModalOpen }) => {
                 </div>
             </div>
             <div className="content">
-                <SignUp className={`${activeTab === 'signup' ? activeContent : "hidden"}`} modal={setIsModalOpen} />
-                <Login className={`${activeTab === 'login' ? activeContent : "hidden"}`} modal={setIsModalOpen} />
+                <Component modal={setIsModalOpen} />
             </div>
         </Modal>
     );

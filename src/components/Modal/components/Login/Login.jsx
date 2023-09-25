@@ -12,17 +12,13 @@ import { useRestInputProps } from '../../../../hooks/useRestProps';
 
 import { loginUser } from '../../../../services/authServices';
 import { loginInput } from '../../../../constant/inputData';
+import { initialLoginValues } from '../../../../constant/initialValues';
 
 
 
 const Login = ({ className, modal }) => {
 
     const { loading, setLoading, error, setError, login } = useAuthContext();
-
-    const initialValues = {
-        email: "",
-        password: "",
-    };
 
     const onSubmit = async ({ email, password }) => {
         try {
@@ -41,7 +37,7 @@ const Login = ({ className, modal }) => {
     }
 
     const formik = useFormik({
-        initialValues,
+        initialValues: initialLoginValues,
         onSubmit,
         validationSchema: loginSchema,
     });

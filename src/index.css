@@ -34,3 +34,17 @@
   height: 70px;
   background-color: #8fc930;
 }
+.showMore::before{
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 3px;
+  background-color: #F2F2F2;
+}
+.showMore::after{
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 3px;
+  background-color: #F2F2F2;
+}

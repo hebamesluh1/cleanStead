@@ -1,9 +1,8 @@
 import axios from "axios";
-import { API_PATH } from "../config/api";
 
 const registerUser = async ({ email, password, username, phone }) => {
   try {
-    const { data } = await axios.post(`${API_PATH}/register`, {
+    const { data } = await axios.post(`/register`, {
       email,
       password,
       name: username,
@@ -23,7 +22,7 @@ const registerUser = async ({ email, password, username, phone }) => {
 
 const loginUser = async ({ email, password }) => {
   try {
-    const { data } = await axios.post(`${API_PATH}/login`, { email, password });
+    const { data } = await axios.post(`/login`, { email, password });
 
     if (data.status) {
       return { success: true, token: data.data.token };
