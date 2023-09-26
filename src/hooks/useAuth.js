@@ -16,11 +16,6 @@ const authReducer = (state, action) => {
         authorized: false,
         token: "",
       };
-    case "SET_LOADING":
-      return {
-        ...state,
-        loading: action.loading,
-      };
     case "SET_ERROR":
       return {
         ...state,
@@ -33,7 +28,6 @@ const authReducer = (state, action) => {
 
 const useAuth = () => {
   const initialState = {
-    loading: false,
     authorized: false,
     token: "",
     error: "",
@@ -61,9 +55,6 @@ const useAuth = () => {
     dispatch({ type: "LOGOUT" });
   };
 
-  const setLoading = (loading) => {
-    dispatch({ type: "SET_LOADING", loading });
-  };
 
   const setError = (error) => {
     dispatch({ type: "SET_ERROR", error });
@@ -73,7 +64,6 @@ const useAuth = () => {
     ...state,
     login,
     logout,
-    setLoading,
     setError,
   };
 };

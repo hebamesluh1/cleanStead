@@ -1,5 +1,3 @@
-//firstly it work but after some time stoped !!!! :(
-
 import axios from "axios";
 import { API_PATH } from "./config/api";
 

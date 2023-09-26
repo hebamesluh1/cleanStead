@@ -14,34 +14,30 @@ import { registerUser } from '../../../../services/authServices';
 import { signUpInput } from '../../../../constant/inputData';
 
 import { initialSignupValues } from '../../../../constant/initialValues'
+import { useMutation } from 'react-query';
 
 
 
 const SignUp = ({ className, modal }) => {
-
-    const { loading, setLoading, error, setError, login } = useAuthContext();
-
-    const onSubmit = async ({ email, password, username, phone }) => {
-        try {
-            setLoading(true);
-
-            const { success, token, message } = await registerUser({
-                email,
-                password,
-                username,
-                phone,
-            });
-
-            if (success) {
-                setError('');
-                login(token);
-                modal(false);
+    const { login, error, setError } = useAuthContext();
+    const { mutate, isLoading } = useMutation(registerUser, {
+        onSuccess: ({ data }) => {
+            if (!data.status) {
+                setError(data.message)
             } else {
-                setError(message);
+                login(data.token);
+                modal(false);
+                setError('');
             }
-        } finally {
-            setLoading(false);
         }
+    })
+    const onSubmit = async ({ email, password, username, phone }) => {
+        mutate({
+            email,
+            password,
+            username,
+            phone
+        })
     }
 
     const formik = useFormik({
@@ -56,9 +52,6 @@ const SignUp = ({ className, modal }) => {
 
     return (
         <div className={` ${className}`}>
-            {error &&
-                <Error msg={error} className="text-center" />
-            }
             <form onSubmit={formik.handleSubmit}>
                 {signUpInput.map((input) => (
                     <Input
@@ -68,7 +61,10 @@ const SignUp = ({ className, modal }) => {
                     />
                 ))}
                 <div className='my-3'>
-                    <Btn text={`${loading ? "loading..." : "انشاء حساب"}`} className="w-full bg-btnColor text-white" type="submit" />
+                    {error &&
+                        <Error msg={error} className="text-center" />
+                    }
+                    <Btn text={`${isLoading ? "loading..." : "انشاء حساب"}`} className="w-full bg-btnColor text-white" type="submit" />
                 </div>
             </form>
         </div>
