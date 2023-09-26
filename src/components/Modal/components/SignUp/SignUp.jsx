@@ -10,7 +10,7 @@ import { signupSchems } from '../../../../validation/validationSchemas';
 import { useRestInputProps } from '../../../../hooks/useRestProps';
 import { useAuthContext } from '../../../../context/AuthContext';
 
-import { registerUser } from '../../../../services/authServices';
+import { registerUser } from '../../../../services/auth.services';
 import { signUpInput } from '../../../../constant/inputData';
 
 import { initialSignupValues } from '../../../../constant/initialValues'

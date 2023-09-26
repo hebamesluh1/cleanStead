@@ -10,7 +10,7 @@ import { loginSchema } from '../../../../validation/validationSchemas';
 import { useAuthContext } from '../../../../context/AuthContext';
 import { useRestInputProps } from '../../../../hooks/useRestProps';
 
-import { loginUser } from '../../../../services/authServices';
+import { loginUser } from '../../../../services/auth.services';
 import { loginInput } from '../../../../constant/inputData';
 import { initialLoginValues } from '../../../../constant/initialValues';
 import { useMutation } from 'react-query';
