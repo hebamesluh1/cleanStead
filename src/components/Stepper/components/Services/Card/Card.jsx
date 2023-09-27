@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MdOutlineExpandMore } from 'react-icons/md'
+import { MdExpandLess, MdOutlineExpandMore } from 'react-icons/md'
 
 
 const Card = ({ title, subtitle }) => {
@@ -30,7 +30,7 @@ const Card = ({ title, subtitle }) => {
                 <div className="showmore flex items-center gap-[10px] cursor-pointer" onClick={toggleSubTitle}>
                     {openSubTitle ?
                         <>
-                            <MdOutlineExpandMore className='text-btnColor' />
+                            <MdExpandLess className='text-btnColor' />
                             <h3 className='text-btnColor'>
                                 عرض أقل
                             </h3>
@@ -68,7 +68,7 @@ const Card = ({ title, subtitle }) => {
                                 <div className="showDetails flex items-center gap-[10px] cursor-pointer" onClick={toggleShowDetails}>
                                     {
                                         showDetails ? <>
-                                            <MdOutlineExpandMore className='text-btnColor' />
+                                            <MdExpandLess className='text-btnColor' />
                                             <h3 className='text-btnColor'>عرض أقل</h3>
                                         </> :
                                             <>
