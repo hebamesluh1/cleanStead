@@ -5,7 +5,7 @@ import { PATHS, navigation } from '../../mock/data';
 import { useAuthContext } from '../../context/AuthContext';
 
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Btn from '../Btn';
 import Modals from '../Modal';
@@ -15,6 +15,7 @@ import Modals from '../Modal';
 export default function Header() {
 
   const { authorized, logout } = useAuthContext();
+  const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -56,7 +57,7 @@ export default function Header() {
           {authorized ? <Btn type="button" text="خروج" className="text-btnColor border border-btnColor" onClick={logout} /> : <Btn type="button" text="دخول" className="text-btnColor border border-btnColor" onClick={() => { setIsModalOpen(true) }} />}
           <Modals isOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
 
-          <Btn type="button" text="احجز الآن" className="bg-btnColor text-white" />
+          <Btn type="button" text="احجز الآن" className="bg-btnColor text-white" onClick={()=>{navigate('/book')}} />
         </div>
       </div>
     </div>

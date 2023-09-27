@@ -16,15 +16,20 @@ import rev3 from "../assets/images/customer3.png";
 
 import services1 from "../assets/images/services.svg";
 
-export const PATHS = {
+import serviceDetails1 from "../assets/images/serviceDetails.png";
+import serviceDetails2 from "../assets/images/service-1.png";
+import serviceDetails3 from "../assets/images/service-2.png";
+
+const PATHS = {
   HOME: "/",
   ABOUT: "/about",
   SERVICES: "/services",
   CONTACT: "/contact",
+  BOOK: "/book",
   NOTFOUND: "404",
 };
 
-export const navigation = [
+const navigation = [
   {
     id: 1,
     name: "الرئيسية",
@@ -47,7 +52,7 @@ export const navigation = [
   },
 ];
 
-export const ServicesData = [
+const ServicesData = [
   {
     title: "تنظيف المنازل",
     desc: "ندرك صعوبة القيام بتنظيف السجاد من قبل النساء في البيوت لأنها تحتاج..",
@@ -80,7 +85,7 @@ export const ServicesData = [
   },
 ];
 
-export const advData = [
+const advData = [
   {
     title: "الموثقية",
     desc: "ندرك صعوبة القيام بتنظيف السجاد من قبل النساء",
@@ -103,7 +108,7 @@ export const advData = [
   },
 ];
 
-export const reviewData = [
+const reviewData = [
   {
     desc: "ندرك صعوبة القيام بتنظيف السجاد من قبل النساء",
     signature: "محمد أحمد",
@@ -121,7 +126,7 @@ export const reviewData = [
   },
 ];
 
-export const availableServices = [
+const availableServices = [
   {
     id: 1,
     title: "غرفة النوم",
@@ -181,5 +186,261 @@ export const availableServices = [
     id: 12,
     title: "غرفة النوم",
     img: services1,
-  }
+  },
 ];
+
+const servicesType = [
+  {
+    id: 1,
+    title: "تنظيف المنازل",
+    subTitl: [
+      {
+        id: 1,
+        subtitles: "غرفة النوم",
+        img: serviceDetails1,
+        price: 15,
+        details: [
+          {
+            id: 1,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 2,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 3,
+            detail: "العناصر المختارة",
+          },
+        ],
+      },
+      {
+        id: 2,
+        subtitles: "غرفة النوم",
+        img: serviceDetails1,
+        price: 15,
+        details: [
+          {
+            id: 1,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 2,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 3,
+            detail: "العناصر المختارة",
+          },
+        ],
+      },
+      {
+        id: 3,
+        subtitles: "غرفة النوم",
+        img: serviceDetails1,
+        price: 15,
+        details: [
+          {
+            id: 1,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 2,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 3,
+            detail: "العناصر المختارة",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "التنظيف التجاري",
+    subTitl: [
+      {
+        id: 1,
+        subtitles: "غرفة النوم",
+        img: serviceDetails1,
+        price: 15,
+        details: [
+          {
+            id: 1,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 2,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 3,
+            detail: "العناصر المختارة",
+          },
+        ],
+      },
+      {
+        id: 2,
+        subtitles: "غرفة النوم",
+        img: serviceDetails1,
+        price: 15,
+        details: [
+          {
+            id: 1,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 2,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 3,
+            detail: "العناصر المختارة",
+          },
+        ],
+      },
+      {
+        id: 3,
+        subtitles: "غرفة النوم",
+        img: serviceDetails1,
+        price: 15,
+        details: [
+          {
+            id: 1,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 2,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 3,
+            detail: "العناصر المختارة",
+          },
+        ],
+      },
+      {
+        id: 4,
+        subtitles: "غرفة النوم",
+        img: serviceDetails1,
+        price: 15,
+        details: [
+          {
+            id: 1,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 2,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 3,
+            detail: "العناصر المختارة",
+          },
+        ],
+      },
+      {
+        id: 5,
+        subtitles: "غرفة النوم",
+        img: serviceDetails1,
+        price: 15,
+        details: [
+          {
+            id: 1,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 2,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 3,
+            detail: "العناصر المختارة",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "تنظيف النوافذ",
+    subTitl: [
+      {
+        id: 1,
+        subtitles: "غرفة النوم",
+        img: serviceDetails1,
+        price: 15,
+        details: [
+          {
+            id: 1,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 2,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 3,
+            detail: "العناصر المختارة",
+          },
+        ],
+      },
+      {
+        id: 2,
+        subtitles: "غرفة النوم",
+        img: serviceDetails1,
+        price: 15,
+        details: [
+          {
+            id: 1,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 2,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 3,
+            detail: "العناصر المختارة",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "تنظيف السجاد",
+    subTitl: [
+      {
+        id: 1,
+        subtitles: "غرفة النوم",
+        img: serviceDetails1,
+        price: 15,
+        details: [
+          {
+            id: 1,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 2,
+            detail: "العناصر المختارة",
+          },
+          {
+            id: 3,
+            detail: "العناصر المختارة",
+          },
+        ],
+      },
+    ],
+  },
+];
+export {
+  servicesType,
+  availableServices,
+  reviewData,
+  advData,
+  ServicesData,
+  navigation,
+  PATHS,
+};

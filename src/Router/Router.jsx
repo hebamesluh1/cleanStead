@@ -9,6 +9,7 @@ const Home = lazy(() => import('../pages/HomePage'));
 const About = lazy(() => import('../pages/AboutPage'));
 const Services = lazy(() => import('../pages/ServicesPage'));
 const Contact = lazy(() => import('../pages/ContactPage'));
+const Book = lazy(() => import('../pages/BookPage'));
 const NotFound = lazy(() => import('../pages/NotFoundPage'));
 
 
@@ -22,6 +23,9 @@ const Router = () => {
                 <Route
                     path="/"
                     element={<Home />} />
+                <Route
+                    path={PATHS.BOOK}
+                    element={<Book />} />
                 {authorized ?
                     <>
                         <Route
@@ -44,6 +48,7 @@ const Router = () => {
                             element={<Navigate to={PATHS.HOME} />} />
                     </>
                 }
+
             </Route>
 
             <Route path={PATHS.NOTFOUND} element={<NotFound />} />
