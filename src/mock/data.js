@@ -20,6 +20,8 @@ import serviceDetails1 from "../assets/images/serviceDetails.png";
 import serviceDetails2 from "../assets/images/service-1.png";
 import serviceDetails3 from "../assets/images/service-2.png";
 
+import { nanoid } from "nanoid";
+
 const PATHS = {
   HOME: "/",
   ABOUT: "/about",
@@ -191,65 +193,65 @@ const availableServices = [
 
 const servicesType = [
   {
-    id: 1,
+    id: nanoid(),
     title: "تنظيف المنازل",
     subTitl: [
       {
-        id: 1,
+        id: nanoid(),
         subtitles: "غرفة النوم",
         img: serviceDetails1,
         price: 15,
         details: [
           {
-            id: 1,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 2,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 3,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
         ],
       },
       {
-        id: 2,
-        subtitles: "غرفة النوم",
+        id: nanoid(),
+        subtitles: "غرفة المعيشة",
         img: serviceDetails1,
         price: 15,
         details: [
           {
-            id: 1,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 2,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 3,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
         ],
       },
       {
-        id: 3,
-        subtitles: "غرفة النوم",
+        id: nanoid(),
+        subtitles: "غرفة الطعام",
         img: serviceDetails1,
         price: 15,
         details: [
           {
-            id: 1,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 2,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 3,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
         ],
@@ -257,105 +259,105 @@ const servicesType = [
     ],
   },
   {
-    id: 2,
+    id: nanoid(),
     title: "التنظيف التجاري",
     subTitl: [
       {
-        id: 1,
-        subtitles: "غرفة النوم",
+        id: nanoid(),
+        subtitles: "فحوصات منزلية ",
         img: serviceDetails1,
         price: 15,
         details: [
           {
-            id: 1,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 2,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 3,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
         ],
       },
       {
-        id: 2,
-        subtitles: "غرفة النوم",
+        id: nanoid(),
+        subtitles: "خدمة التطهير",
         img: serviceDetails1,
         price: 15,
         details: [
           {
-            id: 1,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 2,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 3,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
         ],
       },
       {
-        id: 3,
-        subtitles: "غرفة النوم",
+        id: nanoid(),
+        subtitles: "التجميل المنزلي",
         img: serviceDetails1,
         price: 15,
         details: [
           {
-            id: 1,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 2,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 3,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
         ],
       },
       {
-        id: 4,
-        subtitles: "غرفة النوم",
+        id: nanoid(),
+        subtitles: "تنظيف الأثاث",
         img: serviceDetails1,
         price: 15,
         details: [
           {
-            id: 1,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 2,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 3,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
         ],
       },
       {
-        id: 5,
-        subtitles: "غرفة النوم",
+        id: nanoid(),
+        subtitles: "صيانة وتصليح ",
         img: serviceDetails1,
         price: 15,
         details: [
           {
-            id: 1,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 2,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 3,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
         ],
@@ -363,45 +365,45 @@ const servicesType = [
     ],
   },
   {
-    id: 3,
+    id: nanoid(),
     title: "تنظيف النوافذ",
     subTitl: [
       {
-        id: 1,
-        subtitles: "غرفة النوم",
+        id: nanoid(),
+        subtitles: "تنظيف عميق",
         img: serviceDetails1,
         price: 15,
         details: [
           {
-            id: 1,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 2,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 3,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
         ],
       },
       {
-        id: 2,
-        subtitles: "غرفة النوم",
+        id: nanoid(),
+        subtitles: "تنظيف خارجي",
         img: serviceDetails1,
         price: 15,
         details: [
           {
-            id: 1,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 2,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 3,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
         ],
@@ -409,25 +411,45 @@ const servicesType = [
     ],
   },
   {
-    id: 5,
+    id: nanoid(),
     title: "تنظيف السجاد",
     subTitl: [
       {
-        id: 1,
-        subtitles: "غرفة النوم",
+        id: nanoid(),
+        subtitles: "تنظيف جاف",
         img: serviceDetails1,
         price: 15,
         details: [
           {
-            id: 1,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 2,
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
           {
-            id: 3,
+            id: nanoid(),
+            detail: "العناصر المختارة",
+          },
+        ],
+      },
+      {
+        id: nanoid(),
+        subtitles: "تنظيف بالبخار",
+        img: serviceDetails1,
+        price: 15,
+        details: [
+          {
+            id: nanoid(),
+            detail: "العناصر المختارة",
+          },
+          {
+            id: nanoid(),
+            detail: "العناصر المختارة",
+          },
+          {
+            id: nanoid(),
             detail: "العناصر المختارة",
           },
         ],

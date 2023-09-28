@@ -55,7 +55,7 @@
   @apply relative flex justify-center items-center w-36 gap-[10px];
 }
 .step-item:not(:first-child):after {
-  @apply content-[''] bg-slate-200 absolute w-[60%] h-[3px] left-full  -translate-y-2/4 hidden md:block;
+  @apply content-[''] bg-slate-200 absolute w-[100%] h-[3px] left-full  -translate-y-2/4 hidden md:block;
 }
 .step {
   @apply w-10 h-10 flex items-center justify-center z-10 relative border border-slate-200 rounded-full font-semibold text-slate-200;
