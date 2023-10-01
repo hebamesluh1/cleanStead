@@ -3,6 +3,7 @@ import Router from "./Router"
 import AuthProvider from "./context/AuthContext"
 import { Spinner } from "./components"
 import { QueryClient, QueryClientProvider } from 'react-query'
+import BookProvider from "./context/BookContext"
 
 
 
@@ -13,7 +14,9 @@ function App() {
     <Suspense fallback={<Spinner />}>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
-          <Router />
+          <BookProvider>
+            <Router />
+          </BookProvider>
         </AuthProvider>
       </QueryClientProvider>
     </Suspense>
