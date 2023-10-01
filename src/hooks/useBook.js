@@ -6,19 +6,11 @@ import { validationSchemaSteps } from "../validation/validationSchemas";
 const useBook = () => {
   const [selectedData, setSelectedData] = useState([]);
   const [userData, setUserData] = useState([]);
-  const [finalData, setFinalData] = useState([]);
   const [currentStep, setCurrentStep] = useState(1);
   const [complete, setComplete] = useState(false);
   const [titles, setSelectedTitles] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const steps = ["اختر الخدمات", "التاريخ والوقت", "معلوماتك"];
-
-  const displayData = () => {
-    setFinalData((finalData) => [...finalData, userData]);
-    setUserData("");
-    setCurrentStep(1);
-    setSelectedData("");
-  };
 
   const onsubmit = (body) => {
     if (currentStep < steps.length) {
@@ -40,10 +32,8 @@ const useBook = () => {
   },[userData])
   
   return {
-    displayData,
     selectedData,
     setSelectedData,
-    finalData,
     currentStep,
     setCurrentStep,
     complete,
