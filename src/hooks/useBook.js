@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { initialStepsValues } from "../constant/initialValues";
 import { validationSchemaSteps } from "../validation/validationSchemas";
 
@@ -12,7 +12,6 @@ const useBook = () => {
   const [titles, setSelectedTitles] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const steps = ["اختر الخدمات", "التاريخ والوقت", "معلوماتك"];
-
 
   const displayData = () => {
     setFinalData((finalData) => [...finalData, userData]);
@@ -28,9 +27,7 @@ const useBook = () => {
       setComplete(true);
     }
     setUserData({ ...userData, body });
-    console.log(userData);
-  }
-  console.log(userData)
+  };
 
   const formik = useFormik({
     initialValues: initialStepsValues,
@@ -38,6 +35,10 @@ const useBook = () => {
     onSubmit: onsubmit,
   });
 
+  useEffect(()=>{
+  console.log(userData)
+  },[userData])
+  
   return {
     displayData,
     selectedData,
@@ -53,7 +54,7 @@ const useBook = () => {
     totalPrice,
     setTotalPrice,
     formik,
-    onsubmit
+    onsubmit,
   };
 };
 

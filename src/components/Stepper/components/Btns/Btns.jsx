@@ -11,6 +11,7 @@ const Btns = () => {
           onClick={() => setCurrentStep(currentStep - 1)}
           text="رجوع"
           className="text-btnColor border border-btnColor"
+          type="button"
         />
       ) : (
         ""

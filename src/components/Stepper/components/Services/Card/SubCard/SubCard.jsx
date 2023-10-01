@@ -32,6 +32,8 @@ const SubCard = ({ item, parentTitle }) => {
     const activeData = e.target.checked;
     setChecked(activeData);
     item.checked = activeData;
+
+    //to stored this in summary
     if (activeData) {
       setSelectedData((prev) => [...prev, e.target.value]);
       setSelectedTitles((prev) => [...prev, parentTitle]);
@@ -42,7 +44,7 @@ const SubCard = ({ item, parentTitle }) => {
       updateTotalPrice((prev) => prev - counters * item.price);
     }
 
-    //validation with formik - test 
+    //validation with formik  
     if (formik.values.selectedServices.includes(itemId)) {
       formik.setFieldValue(
         "selectedServices",
@@ -55,8 +57,6 @@ const SubCard = ({ item, parentTitle }) => {
       ]);
     }
   };
-
-  console.log("active checkbox selected ", activeChecked);
 
   return (
     <div>
@@ -91,6 +91,7 @@ const SubCard = ({ item, parentTitle }) => {
               className="text-iconsColor bg-footerBg buttonStyle"
               onClick={addCounter}
               disabled={!activeChecked}
+              type="button"
             >
               +
             </button>
@@ -99,6 +100,7 @@ const SubCard = ({ item, parentTitle }) => {
               className="text-iconsColor bg-footerBg buttonStyle "
               onClick={minusCounter}
               disabled={!activeChecked}
+              type="button"
             >
               -
             </button>
