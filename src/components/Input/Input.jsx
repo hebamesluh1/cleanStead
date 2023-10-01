@@ -21,7 +21,8 @@ const Input = ({
   mail,
   user,
   phone,
-  pass
+  pass,
+  className=""
 }) => {
 
   const [showToggle, setToggle] = useState(false);
@@ -30,7 +31,7 @@ const Input = ({
     setToggle(!showToggle);
   }
   return (
-    <div className={`w-full pt-5 ${icons && "relative"}`}>
+    <div className={`w-full pt-5 ${icons && "relative"}${className}`}>
       <label htmlFor="">{label}</label>
       {area ? (
         <textarea

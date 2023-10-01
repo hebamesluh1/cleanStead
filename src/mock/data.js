@@ -220,7 +220,7 @@ const servicesType = [
         id: nanoid(),
         subtitles: "غرفة المعيشة",
         img: serviceDetails1,
-        price: 15,
+        price: 20,
         details: [
           {
             id: nanoid(),
@@ -240,7 +240,7 @@ const servicesType = [
         id: nanoid(),
         subtitles: "غرفة الطعام",
         img: serviceDetails1,
-        price: 15,
+        price: 50,
         details: [
           {
             id: nanoid(),
@@ -266,7 +266,7 @@ const servicesType = [
         id: nanoid(),
         subtitles: "فحوصات منزلية ",
         img: serviceDetails1,
-        price: 15,
+        price: 70,
         details: [
           {
             id: nanoid(),
@@ -286,7 +286,7 @@ const servicesType = [
         id: nanoid(),
         subtitles: "خدمة التطهير",
         img: serviceDetails1,
-        price: 15,
+        price: 10,
         details: [
           {
             id: nanoid(),
@@ -306,7 +306,7 @@ const servicesType = [
         id: nanoid(),
         subtitles: "التجميل المنزلي",
         img: serviceDetails1,
-        price: 15,
+        price: 40,
         details: [
           {
             id: nanoid(),
@@ -326,7 +326,7 @@ const servicesType = [
         id: nanoid(),
         subtitles: "تنظيف الأثاث",
         img: serviceDetails1,
-        price: 15,
+        price: 100,
         details: [
           {
             id: nanoid(),
@@ -346,7 +346,7 @@ const servicesType = [
         id: nanoid(),
         subtitles: "صيانة وتصليح ",
         img: serviceDetails1,
-        price: 15,
+        price: 80,
         details: [
           {
             id: nanoid(),
@@ -372,7 +372,7 @@ const servicesType = [
         id: nanoid(),
         subtitles: "تنظيف عميق",
         img: serviceDetails1,
-        price: 15,
+        price: 90,
         details: [
           {
             id: nanoid(),
@@ -392,7 +392,7 @@ const servicesType = [
         id: nanoid(),
         subtitles: "تنظيف خارجي",
         img: serviceDetails1,
-        price: 15,
+        price: 34,
         details: [
           {
             id: nanoid(),
@@ -438,7 +438,7 @@ const servicesType = [
         id: nanoid(),
         subtitles: "تنظيف بالبخار",
         img: serviceDetails1,
-        price: 15,
+        price: 89,
         details: [
           {
             id: nanoid(),

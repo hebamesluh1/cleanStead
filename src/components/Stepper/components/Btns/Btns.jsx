@@ -1,9 +1,9 @@
-import React from 'react'
-import { useBookContext } from '../../../../context/BookContext';
-import Btn from '../../../Btn';
+import React from "react";
+import { useBookContext } from "../../../../context/BookContext";
+import Btn from "../../../Btn";
 
 const Btns = () => {
-  const { setComplete, complete, setCurrentStep, currentStep, steps } = useBookContext()
+  const { complete, setCurrentStep, currentStep, steps } = useBookContext();
   return (
     <div className="flex justify-between">
       {currentStep != 1 ? (
@@ -16,6 +16,7 @@ const Btns = () => {
         ""
       )}
       <Btn
+        type="submit"
         className="bg-btnColor text-white"
         text={
           !complete
@@ -23,19 +24,12 @@ const Btns = () => {
               ? "ارسال"
               : "استمرار"
             : steps.length === currentStep
-              ? "تم الارسال"
-              : "استمرار"
+            ? "تم الارسال"
+            : "استمرار"
         }
-        onClick={() => {
-          if (currentStep < steps.length) {
-            setCurrentStep((prev) => prev + 1);
-          } else {
-            setComplete(true);
-          }
-        }}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Btns
+export default Btns;

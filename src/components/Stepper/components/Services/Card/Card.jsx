@@ -33,7 +33,7 @@ const Card = ({ title, subtitle }) => {
       {openSubTitle && (
         <div className="border-t border-solid border-borderColor my-3">
           {subtitle.map((item) => (
-            <SubCard key={item.id} item={item} />
+            <SubCard key={item.id} item={item} parentTitle={title}/>
           ))}
         </div>
       )}

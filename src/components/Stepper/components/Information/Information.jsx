@@ -1,24 +1,27 @@
 import React from "react";
 import Input from "../../../Input/Input";
+import { useRestInputProps } from "../../../../hooks/useRestProps";
+import { useBookContext } from "../../../../context/BookContext";
+import { InformationInput } from "../../../../constant/inputData";
 
 const Information = () => {
+  const { formik } = useBookContext();
+  const restInputProps = (key) => useRestInputProps(formik, key);
   return (
     <div className="my-3">
       <h2 className="text-xl">أدخل معلوماتك</h2>
-      <form>
-        <div className="flex gap-[10px]">
-          <Input label="الاسم" type="text" placeholder="الاسم" />
-          <Input label="رقم الجوال" type="tel" placeholder="رقم الجوال" />
-        </div>
-        <div className="flex gap-[10px]">
-          <Input label="العنوان" type="text" placeholder="العنوان" />
-          <Input
-            label="العنوان التفصيلي"
-            type="text"
-            placeholder="العنوان التفصيلي"
-          />
-        </div>
-      </form>
+      <div className="flex flex-wrap gap-[10px] mb-4">
+        {InformationInput.map((input) => {
+          return (
+            <Input
+              className="basis-full md:basis-[45%]"
+              key={input.id}
+              {...input}
+              {...restInputProps(input.name)}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

@@ -1,38 +1,80 @@
 import React, { useState } from "react";
 import { MdExpandLess, MdOutlineExpandMore } from "react-icons/md";
+import { useBookContext } from "../../../../../../context/BookContext";
 
-const SubCard = ({ item }) => {
+const SubCard = ({ item, parentTitle }) => {
   const [showDetails, setShowDetails] = useState(false);
-  const [counters, setCounters] = useState(0);
+  const [counters, setCounters] = useState(1);
   const [activeChecked, setChecked] = useState(false);
+  const { setSelectedTitles, setSelectedData, setTotalPrice, formik } = useBookContext();
 
   const toggleShowDetails = () => {
     setShowDetails(!showDetails);
   };
-  const addCounter = () => {
+
+  const addCounter = (e) => {
     setCounters((prev) => prev + 1);
+    updateTotalPrice((prev) => prev + item.price);
   };
+
   const minusCounter = () => {
     if (counters > 0) {
       setCounters((prev) => prev - 1);
+      updateTotalPrice((prev) => prev - item.price);
     }
   };
 
-  const handleActive = () => {
-    setChecked(!activeChecked);
+  const updateTotalPrice = (calculateTotal) => {
+    setTotalPrice(calculateTotal);
   };
-  console.log(item);
+
+  const handleChange = (e, itemId) => {
+    const activeData = e.target.checked;
+    setChecked(activeData);
+    item.checked = activeData;
+    if (activeData) {
+      setSelectedData((prev) => [...prev, e.target.value]);
+      setSelectedTitles((prev) => [...prev, parentTitle]);
+      updateTotalPrice((prev) => prev + counters * item.price);
+    } else {
+      setSelectedData((prev) => prev.filter((val) => val !== e.target.value));
+      setSelectedTitles((prev) => prev.filter((title) => title !== parentTitle));
+      updateTotalPrice((prev) => prev - counters * item.price);
+    }
+
+    //validation with formik - test 
+    if (formik.values.selectedServices.includes(itemId)) {
+      formik.setFieldValue(
+        "selectedServices",
+        formik.values.selectedServices.filter((id) => id !== itemId)
+      );
+    } else {
+      formik.setFieldValue("selectedServices", [
+        ...formik.values.selectedServices,
+        itemId,
+      ]);
+    }
+  };
+
+  console.log("active checkbox selected ", activeChecked);
+
   return (
     <div>
       <div
-        className={`subtitle border border-${
-          activeChecked ? "btnColor" : "borderColor"
-        } my-3 rounded-2xl p-3`}
+        className={`subtitle border border-${activeChecked ? "btnColor" : "borderColor"
+          } my-3 rounded-2xl p-3`}
       >
         <div className={`flex justify-between items-center`}>
           <div className="checkbox">
             <label className="flex align-items justify-center items-center gap-[10px] ">
-              <input type="checkbox" onChange={handleActive} />
+              <input
+                id={item.id}
+                type="checkbox"
+                name={item.subtitles}
+                value={item.subtitles}
+                checked={item.checked}
+                onChange={(e)=>handleChange(e,item.subtitles)}
+              />
               <img
                 src={item.img}
                 alt=""
@@ -48,6 +90,7 @@ const SubCard = ({ item }) => {
             <button
               className="text-iconsColor bg-footerBg buttonStyle"
               onClick={addCounter}
+              disabled={!activeChecked}
             >
               +
             </button>
@@ -55,6 +98,7 @@ const SubCard = ({ item }) => {
             <button
               className="text-iconsColor bg-footerBg buttonStyle "
               onClick={minusCounter}
+              disabled={!activeChecked}
             >
               -
             </button>

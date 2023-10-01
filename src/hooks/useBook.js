@@ -1,4 +1,7 @@
+import { useFormik } from "formik";
 import React, { useState } from "react";
+import { initialStepsValues } from "../constant/initialValues";
+import { validationSchemaSteps } from "../validation/validationSchemas";
 
 const useBook = () => {
   const [selectedData, setSelectedData] = useState([]);
@@ -6,30 +9,51 @@ const useBook = () => {
   const [finalData, setFinalData] = useState([]);
   const [currentStep, setCurrentStep] = useState(1);
   const [complete, setComplete] = useState(false);
+  const [titles, setSelectedTitles] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
   const steps = ["اختر الخدمات", "التاريخ والوقت", "معلوماتك"];
 
 
-
-
-  const storageData = (body) => {
-    setUserData({ ...userData, ...body });
-  };
   const displayData = () => {
     setFinalData((finalData) => [...finalData, userData]);
     setUserData("");
     setCurrentStep(1);
     setSelectedData("");
   };
+
+  const onsubmit = (body) => {
+    if (currentStep < steps.length) {
+      setCurrentStep((prev) => prev + 1);
+    } else {
+      setComplete(true);
+    }
+    setUserData({ ...userData, body });
+    console.log(userData);
+  }
+  console.log(userData)
+
+  const formik = useFormik({
+    initialValues: initialStepsValues,
+    validationSchema: validationSchemaSteps[currentStep],
+    onSubmit: onsubmit,
+  });
+
   return {
-    storageData,
     displayData,
     selectedData,
+    setSelectedData,
     finalData,
     currentStep,
     setCurrentStep,
     complete,
     setComplete,
-    steps
+    steps,
+    titles,
+    setSelectedTitles,
+    totalPrice,
+    setTotalPrice,
+    formik,
+    onsubmit
   };
 };
 
