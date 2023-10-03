@@ -27,11 +27,14 @@ const SubCard = ({ item, parentTitle }) => {
   const updateTotalPrice = (calculateTotal) => {
     setTotalPrice(calculateTotal);
   };
+  // validate if main service id included
+  // if yes validate if subservice id included => remove subservice id, double check if mainService.length>0, if not included push it
+  // if not added (main service) push new object for main service which is includes array of subservices at least should include selected subservice
 
   const handleChange = (e, itemId) => {
     const activeData = e.target.checked;
     setChecked(activeData);
-    item.checked = activeData;
+    // item.checked = activeData;
 
     //to stored this in summary
     if (activeData) {
@@ -73,7 +76,7 @@ const SubCard = ({ item, parentTitle }) => {
                 name={item.subtitles}
                 value={item.subtitles}
                 checked={item.checked}
-                onChange={(e)=>handleChange(e,item.subtitles)}
+                onChange={(e) => handleChange(e, item.subtitles)}
               />
               <img
                 src={item.img}

@@ -10,19 +10,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { contactSchema } from "../../validation/validationSchemas";
-import { useRestInputProps } from "../../hooks/useRestProps";
+import { restInputProps } from "../../utils/restInputProps";
+import { initialContactValues } from "../../constant/initialValues";
 
 const ContactPage = () => {
-
-  const initialValues = {
-    service: "",
-    name: "",
-    phone: "",
-    msg: "",
-  };
-
   const notify = () => {
-    toast.success("تم الارسال بنجاح سنرد عليك بالقريب العاجل :)", {
+    toast.success("تم الارسال بنجاح", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
@@ -32,12 +25,10 @@ const ContactPage = () => {
   };
 
   const formik = useFormik({
-    initialValues,
+    initialValues: initialContactValues,
     onSubmit,
     validationSchema: contactSchema,
   });
-
-  const restInputProps = (key) => useRestInputProps(formik, key);
 
   return (
     <div className="flex justify-between flex-wrap mt-10 mb-10 gap-3">
@@ -49,7 +40,7 @@ const ContactPage = () => {
             label="الخدمة"
             placeholder="اسم الخدمة"
             type="text"
-            {...restInputProps("service")}
+            {...restInputProps(formik, "service")}
           />
 
           <div className="flex gap-5 justify-between">
@@ -58,7 +49,7 @@ const ContactPage = () => {
                 label="الاسم"
                 placeholder="الاسم"
                 type="text"
-                {...restInputProps("name")}
+                {...restInputProps(formik, "name")}
               />
             </div>
             <div>
@@ -66,7 +57,7 @@ const ContactPage = () => {
                 label="رقم الجوال"
                 placeholder="رقم الجوال"
                 type="tel"
-                {...restInputProps("phone")}
+                {...restInputProps(formik, "phone")}
               />
             </div>
           </div>
@@ -74,10 +65,14 @@ const ContactPage = () => {
             label="الرسالة"
             placeholder="أكتب رسالتك هنا"
             type="text"
-            {...restInputProps("msg")}
+            {...restInputProps(formik, "msg")}
             area
           />
-          <Btn type="submit" text="أرسل" className="px-8 py-3 bg-btnColor text-white" />
+          <Btn
+            type="submit"
+            text="أرسل"
+            className="px-8 py-3 bg-btnColor text-white"
+          />
         </form>
       </div>
       <div className="images flex-1 hidden md:block">

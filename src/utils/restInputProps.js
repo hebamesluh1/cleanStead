@@ -1,4 +1,4 @@
-export function useRestInputProps(formik, key) {
+function restInputProps(formik, key) {
   return {
     name: key,
     onChange: formik.handleChange,
@@ -7,5 +7,8 @@ export function useRestInputProps(formik, key) {
     error: formik.touched[key] && formik.errors[key],
     errorMessage:
       formik.touched[key] && formik.errors[key] ? formik.errors[key] : "",
+    touched: formik.touched[key],
   };
 }
+
+export { restInputProps };

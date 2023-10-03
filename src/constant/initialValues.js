@@ -1,3 +1,9 @@
+const initialContactValues ={
+  service: "",
+    name: "",
+    phone: "",
+    msg: "",
+}
 const initialSignupValues = {
   username: "",
   phone: "",
@@ -20,4 +26,5 @@ const initialStepsValues = {
   detailsAddress: "",
 };
 
-export { initialSignupValues, initialLoginValues, initialStepsValues };
+
+export { initialSignupValues, initialLoginValues, initialStepsValues,initialContactValues };

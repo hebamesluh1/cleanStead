@@ -1,8 +1,10 @@
 import React from 'react';
 import hero from '../../../../assets/images/hero.png';
 import { Btn } from '../../../../components';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
+    const navigate = useNavigate();
     const customStyle = {
         background: `url(${hero})`,
         backgroundPosition: "center",
@@ -21,7 +23,7 @@ const HeroSection = () => {
                 <p className='text-textColor text-2xl leading-12 pb-5'>ما تشيل هم كلمنا بنساعدك
                     احجز خدمة مضمونة بكبسة زر</p>
 
-                <Btn text="تواصل معنا " type="button" className="bg-white text-black" />
+                <Btn text="تواصل معنا " type="button" className="bg-white text-black" onClick={()=>navigate('/contact')}/>
             </div>
         </div>
     );

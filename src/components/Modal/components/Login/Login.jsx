@@ -8,7 +8,7 @@ import { useFormik } from 'formik';
 
 import { loginSchema } from '../../../../validation/validationSchemas';
 import { useAuthContext } from '../../../../context/AuthContext';
-import { useRestInputProps } from '../../../../hooks/useRestProps';
+import { restInputProps } from '../../../../utils/restInputProps';
 
 import { loginUser } from '../../../../services/auth.services';
 import { loginInput } from '../../../../constant/inputData';
@@ -46,9 +46,6 @@ const Login = ({ className, modal }) => {
         validationSchema: loginSchema,
     });
 
-    const restInputProps = (key) => useRestInputProps(formik, key);
-
-
     return (
         <div className={` ${className}`}>
             <form onSubmit={formik.handleSubmit}>
@@ -56,7 +53,7 @@ const Login = ({ className, modal }) => {
                 (<Input
                     key={input.id}
                     {...input}
-                    {...restInputProps(`${input.name}`)}
+                    {...restInputProps(formik, input.name)}
                 />)
                 )}
                 <div className='my-3'>

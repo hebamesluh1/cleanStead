@@ -7,7 +7,7 @@ import Error from '../../../Error';
 import { useFormik } from 'formik';
 
 import { signupSchems } from '../../../../validation/validationSchemas';
-import { useRestInputProps } from '../../../../hooks/useRestProps';
+import { restInputProps } from '../../../../utils/restInputProps';
 import { useAuthContext } from '../../../../context/AuthContext';
 
 import { registerUser } from '../../../../services/auth.services';
@@ -46,10 +46,6 @@ const SignUp = ({ className, modal }) => {
         validationSchema: signupSchems,
     });
 
-    const restInputProps = (key) => useRestInputProps(formik, key);
-
-
-
     return (
         <div className={` ${className}`}>
             <form onSubmit={formik.handleSubmit}>
@@ -57,7 +53,7 @@ const SignUp = ({ className, modal }) => {
                     <Input
                         key={input.id}
                         {...input}
-                        {...restInputProps(`${input.name}`)}
+                        {...restInputProps(formik, input.name)}
                     />
                 ))}
                 <div className='my-3'>

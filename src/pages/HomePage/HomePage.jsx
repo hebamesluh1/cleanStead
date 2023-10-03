@@ -1,20 +1,20 @@
-import React from 'react'
+import React from "react";
 import {
-    AdvantagesSection,
-    HeroSection,
-    ReviewSection,
-    ServiceSection
-} from './components'
+  AdvantagesSection,
+  HeroSection,
+  ReviewSection,
+  ServiceSection,
+} from "./components";
 
 const HomePage = () => {
-    return (
-        <>
-            <HeroSection />
-            <ServiceSection />
-            <AdvantagesSection />
-            <ReviewSection />
-        </>
-    )
-}
+  return (
+    <>
+      <HeroSection />
+      <ServiceSection />
+      <AdvantagesSection />
+      <ReviewSection />
+    </>
+  );
+};
 
-export default HomePage
+export default HomePage;

@@ -1,12 +1,11 @@
 import React from "react";
 import Input from "../../../Input/Input";
-import { useRestInputProps } from "../../../../hooks/useRestProps";
+import { restInputProps } from "../../../../utils/restInputProps";
 import { useBookContext } from "../../../../context/BookContext";
 import { InformationInput } from "../../../../constant/inputData";
 
 const Information = () => {
   const { formik } = useBookContext();
-  const restInputProps = (key) => useRestInputProps(formik, key);
   return (
     <div className="my-3">
       <h2 className="text-xl">أدخل معلوماتك</h2>
@@ -17,7 +16,7 @@ const Information = () => {
               className="basis-full md:basis-[45%]"
               key={input.id}
               {...input}
-              {...restInputProps(input.name)}
+              {...restInputProps(formik, input.name)}
             />
           );
         })}

@@ -1,7 +1,16 @@
 import React from "react";
 import Error from "../../../../../Error";
 
-const Date = ({ name, onChange, onBlur, value, error, errorMessage }) => {
+const Date = ({
+  name,
+  onChange,
+  onBlur,
+  value,
+  error,
+  errorMessage,
+  ...rest
+}) => {
+  console.log({ error, errorMessage, rest });
   return (
     <>
       <input

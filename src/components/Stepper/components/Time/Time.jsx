@@ -1,11 +1,10 @@
 import React from "react";
 import { Radio, Date } from "./components";
-import { useRestInputProps } from "../../../../hooks/useRestProps";
+import { restInputProps } from "../../../../utils/restInputProps";
 import { useBookContext } from "../../../../context/BookContext";
 
 const Time = () => {
-  const {formik} = useBookContext();
-  const restInputProps = (key) => useRestInputProps(formik, key);
+  const { formik } = useBookContext();
   return (
     <div className="my-3">
       <h2 className="text-xl">اختر موعد الخدمة</h2>
@@ -16,7 +15,7 @@ const Time = () => {
             <Radio
               name="repeatServices"
               options={["مرة واحدة", "يوميًا", "أسبوعيًا", "شهريًا"]}
-              {...restInputProps("repeatServices")}
+              {...restInputProps(formik, "repeatServices")}
               checked={formik.values["repeatServices"]}
             />
           </div>
@@ -24,7 +23,7 @@ const Time = () => {
         <div className="my-5">
           <h4 className="text-lg my-2">التاريخ والوقت</h4>
           <Date
-            {...restInputProps("date")}
+            {...restInputProps(formik, "date")}
           />
         </div>
       </form>
