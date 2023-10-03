@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdExpandLess, MdOutlineExpandMore } from "react-icons/md";
-import { useBookContext } from "../../../../../../context/BookContext";
+import { useBookContext } from "../../../../../../../context/BookContext";
 
 const SubCard = ({ item, parentTitle }) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -38,7 +38,7 @@ const SubCard = ({ item, parentTitle }) => {
 
     //to stored this in summary
     if (activeData) {
-      setSelectedData((prev) => [...prev, e.target.value]);
+      // setSelectedData((prev) => [...prev, e.target.value]);
       setSelectedTitles((prev) => [...prev, parentTitle]);
       updateTotalPrice((prev) => prev + counters * item.price);
     } else {
@@ -53,6 +53,7 @@ const SubCard = ({ item, parentTitle }) => {
         "selectedServices",
         formik.values.selectedServices.filter((id) => id !== itemId)
       );
+      // setSelectedData(prev => [...prev, formik.values.selectedServices])
     } else {
       formik.setFieldValue("selectedServices", [
         ...formik.values.selectedServices,
@@ -75,7 +76,7 @@ const SubCard = ({ item, parentTitle }) => {
                 type="checkbox"
                 name={item.subtitles}
                 value={item.subtitles}
-                checked={item.checked}
+                checked={formik.values[item.subtitles]}
                 onChange={(e) => handleChange(e, item.subtitles)}
               />
               <img

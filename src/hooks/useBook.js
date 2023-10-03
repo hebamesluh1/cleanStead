@@ -5,6 +5,7 @@ import { validationSchemaSteps } from "../validation/validationSchemas";
 
 const useBook = () => {
   const [selectedData, setSelectedData] = useState([]);
+  const [finalData , setFinalData] = useState([]);
   const [userData, setUserData] = useState([]);
   const [currentStep, setCurrentStep] = useState(1);
   const [complete, setComplete] = useState(false);
@@ -19,7 +20,11 @@ const useBook = () => {
       setComplete(true);
     }
     setUserData({ ...userData, body });
+    setSelectedData([...selectedData,body.selectedServices])
   };
+  const setFinalDataFunc =()=>{
+    
+  }
 
   const formik = useFormik({
     initialValues: initialStepsValues,

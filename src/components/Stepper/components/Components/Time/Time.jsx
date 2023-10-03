@@ -1,7 +1,7 @@
 import React from "react";
 import { Radio, Date } from "./components";
-import { restInputProps } from "../../../../utils/restInputProps";
-import { useBookContext } from "../../../../context/BookContext";
+import { restInputProps } from "../../../../../utils/restInputProps";
+import { useBookContext } from "../../../../../context/BookContext";
 
 const Time = () => {
   const { formik } = useBookContext();

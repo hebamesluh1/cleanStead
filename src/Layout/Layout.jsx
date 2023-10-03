@@ -10,7 +10,7 @@ const Layout = () => {
     return (
         <Container>
             <Header />
-            <main style={{ paddingTop: "10%" }}>
+            <main style={{ paddingTop: "7%" }}>
                 <Suspense fallback={<Spinner />}>
                     <Outlet />
                 </Suspense>

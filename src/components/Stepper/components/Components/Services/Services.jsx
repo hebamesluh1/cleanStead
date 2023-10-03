@@ -1,7 +1,7 @@
 import React from "react";
-import { servicesType } from "../../../../mock/data";
+import { servicesType } from "../../../../../mock/data";
 import Card from "./Card";
-import { useBookContext } from "../../../../context/BookContext";
+import { useBookContext } from "../../../../../context/BookContext";
 
 const Services = () => {
   const { formik } = useBookContext();
