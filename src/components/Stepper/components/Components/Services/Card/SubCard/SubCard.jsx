@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { MdExpandLess, MdOutlineExpandMore } from "react-icons/md";
 import { useBookContext } from "../../../../../../../context/BookContext";
 
-const SubCard = ({ item, parentTitle }) => {
+const SubCard = ({ item, serv }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [counters, setCounters] = useState(1);
-  const [activeChecked, setChecked] = useState(false);
-  const { setSelectedTitles, setSelectedData, setTotalPrice, formik } = useBookContext();
+  const { setTotalPrice, setLists, formik, lists } = useBookContext();
 
   const toggleShowDetails = () => {
     setShowDetails(!showDetails);
@@ -27,57 +26,65 @@ const SubCard = ({ item, parentTitle }) => {
   const updateTotalPrice = (calculateTotal) => {
     setTotalPrice(calculateTotal);
   };
-  // validate if main service id included
-  // if yes validate if subservice id included => remove subservice id, double check if mainService.length>0, if not included push it
-  // if not added (main service) push new object for main service which is includes array of subservices at least should include selected subservice
 
-  const handleChange = (e, itemId) => {
-    const activeData = e.target.checked;
-    setChecked(activeData);
-    // item.checked = activeData;
-
-    //to stored this in summary
-    if (activeData) {
-      // setSelectedData((prev) => [...prev, e.target.value]);
-      setSelectedTitles((prev) => [...prev, parentTitle]);
+  const handleChange = (selectedList) => (e) => {
+    const { checked, name } = e.target;
+    const activeSelected = e.target.checked;
+    if (activeSelected) {
       updateTotalPrice((prev) => prev + counters * item.price);
     } else {
-      setSelectedData((prev) => prev.filter((val) => val !== e.target.value));
-      setSelectedTitles((prev) => prev.filter((title) => title !== parentTitle));
       updateTotalPrice((prev) => prev - counters * item.price);
     }
 
-    //validation with formik  
-    if (formik.values.selectedServices.includes(itemId)) {
-      formik.setFieldValue(
-        "selectedServices",
-        formik.values.selectedServices.filter((id) => id !== itemId)
-      );
-      // setSelectedData(prev => [...prev, formik.values.selectedServices])
-    } else {
-      formik.setFieldValue("selectedServices", [
-        ...formik.values.selectedServices,
-        itemId,
-      ]);
-    }
+    const updatedSelectedServices = checked
+      ? [...formik.values.selectedServices, name]
+      : formik.values.selectedServices.filter((id) => id !== name);
+
+    formik.setFieldValue("selectedServices", updatedSelectedServices);
+
+    setLists((prevLists) =>
+      prevLists.map((list) =>
+        list.id === selectedList.id
+          ? {
+              ...list,
+              subTitl: list.subTitl.map((subServices) =>
+                subServices.id === name
+                  ? {
+                      ...subServices,
+                      completed: checked,
+                    }
+                  : subServices
+              ),
+            }
+          : list
+      )
+    );
   };
+
+  const isSelected = useMemo(() => {
+    const currentList = lists.find((list) => list.id === serv.id);
+    const subService = currentList.subTitl.find(
+      (subService) => subService.id === item.id
+    );
+    return subService.completed;
+  }, [lists, serv.id]);
 
   return (
     <div>
       <div
-        className={`subtitle border border-${activeChecked ? "btnColor" : "borderColor"
-          } my-3 rounded-2xl p-3`}
+        className={`subtitle border border-${
+          isSelected ? "btnColor" : "borderColor"
+        } my-3 rounded-2xl p-3`}
       >
         <div className={`flex justify-between items-center`}>
           <div className="checkbox">
             <label className="flex align-items justify-center items-center gap-[10px] ">
               <input
-                id={item.id}
                 type="checkbox"
-                name={item.subtitles}
+                name={item.id}
                 value={item.subtitles}
-                checked={formik.values[item.subtitles]}
-                onChange={(e) => handleChange(e, item.subtitles)}
+                checked={isSelected}
+                onChange={handleChange(serv)}
               />
               <img
                 src={item.img}
@@ -94,7 +101,7 @@ const SubCard = ({ item, parentTitle }) => {
             <button
               className="text-iconsColor bg-footerBg buttonStyle"
               onClick={addCounter}
-              disabled={!activeChecked}
+              disabled={!isSelected}
               type="button"
             >
               +
@@ -103,7 +110,7 @@ const SubCard = ({ item, parentTitle }) => {
             <button
               className="text-iconsColor bg-footerBg buttonStyle "
               onClick={minusCounter}
-              disabled={!activeChecked}
+              disabled={!isSelected}
               type="button"
             >
               -

@@ -195,12 +195,14 @@ const servicesType = [
   {
     id: nanoid(),
     title: "تنظيف المنازل",
+    active:false,
     subTitl: [
       {
         id: nanoid(),
         subtitles: "غرفة النوم",
         img: serviceDetails1,
         price: 15,
+        completed:false,
         details: [
           {
             id: nanoid(),
@@ -221,6 +223,7 @@ const servicesType = [
         subtitles: "غرفة المعيشة",
         img: serviceDetails1,
         price: 20,
+        completed:false,
         details: [
           {
             id: nanoid(),
@@ -241,6 +244,7 @@ const servicesType = [
         subtitles: "غرفة الطعام",
         img: serviceDetails1,
         price: 50,
+        completed:false,
         details: [
           {
             id: nanoid(),
@@ -261,12 +265,14 @@ const servicesType = [
   {
     id: nanoid(),
     title: "التنظيف التجاري",
+    active:false,
     subTitl: [
       {
         id: nanoid(),
         subtitles: "فحوصات منزلية ",
         img: serviceDetails1,
         price: 70,
+        completed:false,
         details: [
           {
             id: nanoid(),
@@ -287,6 +293,7 @@ const servicesType = [
         subtitles: "خدمة التطهير",
         img: serviceDetails1,
         price: 10,
+        completed:false,
         details: [
           {
             id: nanoid(),
@@ -307,6 +314,7 @@ const servicesType = [
         subtitles: "التجميل المنزلي",
         img: serviceDetails1,
         price: 40,
+        completed:false,
         details: [
           {
             id: nanoid(),
@@ -327,6 +335,7 @@ const servicesType = [
         subtitles: "تنظيف الأثاث",
         img: serviceDetails1,
         price: 100,
+        completed:false,
         details: [
           {
             id: nanoid(),
@@ -347,6 +356,7 @@ const servicesType = [
         subtitles: "صيانة وتصليح ",
         img: serviceDetails1,
         price: 80,
+        completed:false,
         details: [
           {
             id: nanoid(),
@@ -367,12 +377,14 @@ const servicesType = [
   {
     id: nanoid(),
     title: "تنظيف النوافذ",
+    active:false,
     subTitl: [
       {
         id: nanoid(),
         subtitles: "تنظيف عميق",
         img: serviceDetails1,
         price: 90,
+        completed:false,
         details: [
           {
             id: nanoid(),
@@ -393,6 +405,7 @@ const servicesType = [
         subtitles: "تنظيف خارجي",
         img: serviceDetails1,
         price: 34,
+        completed:false,
         details: [
           {
             id: nanoid(),
@@ -413,12 +426,14 @@ const servicesType = [
   {
     id: nanoid(),
     title: "تنظيف السجاد",
+    active:false,
     subTitl: [
       {
         id: nanoid(),
         subtitles: "تنظيف جاف",
         img: serviceDetails1,
         price: 15,
+        completed:false,
         details: [
           {
             id: nanoid(),
@@ -439,6 +454,7 @@ const servicesType = [
         subtitles: "تنظيف بالبخار",
         img: serviceDetails1,
         price: 89,
+        completed:false,
         details: [
           {
             id: nanoid(),

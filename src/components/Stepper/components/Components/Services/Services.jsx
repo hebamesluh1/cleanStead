@@ -12,7 +12,11 @@ const Services = () => {
       </h2>
       <div className="accordion">
         {servicesType.map((serv) => (
-          <Card title={serv.title} subtitle={serv.subTitl} key={serv.id} />
+          <Card
+            serv={serv}
+            subtitle={serv.subTitl}
+            key={serv.id}
+          />
         ))}
       </div>
       {formik.touched.selectedServices && formik.errors.selectedServices && (
