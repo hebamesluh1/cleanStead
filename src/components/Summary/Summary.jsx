@@ -7,11 +7,11 @@ const Summary = () => {
   const activeServices = lists.filter((service) => service.active);
 
   const getServiceTitles = () => {
-    return activeServices.map((service) => service.title);
+    return lists.filter((service) => service.active).map((service) => service.title);
   };
 
   const getSubTitleServices = () => {
-    const subtitlesArray = activeServices.flatMap((service) =>
+    const subtitlesArray = lists.filter((service) => service.active).flatMap((service) =>
       service.subTitl
         .filter((subtitle) => subtitle.completed)
         .map((subtitle) => subtitle.subtitles)
@@ -23,7 +23,6 @@ const Summary = () => {
   const serviceTitlesList = getServiceTitles();
   const subtitleServices = getSubTitleServices();
 
-  console.log(serviceTitlesList);
   return (
     <div className="p-5 fit-height">
       <div className="border-b-4 border-white p-5 my-5">
