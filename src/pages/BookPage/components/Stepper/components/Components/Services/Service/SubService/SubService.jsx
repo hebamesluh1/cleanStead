@@ -1,14 +1,14 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { MdExpandLess, MdOutlineExpandMore } from "react-icons/md";
-import { useBookContext } from "../../../../../../../context/BookContext";
+import { useBookContext } from "../../../../../../../../../context/BookContext";
 
-const SubCard = ({ item, serv }) => {
+const SubService = ({ item, service }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [counters, setCounters] = useState(1);
   const { setTotalPrice, setLists, formik, lists } = useBookContext();
 
   const toggleShowDetails = () => {
-    setShowDetails(!showDetails);
+    setShowDetails((prev) => !prev);
   };
 
   const addCounter = (e) => {
@@ -62,12 +62,12 @@ const SubCard = ({ item, serv }) => {
   };
 
   const isSelected = useMemo(() => {
-    const currentList = lists.find((list) => list.id === serv.id);
+    const currentList = lists.find((list) => list.id === service.id);
     const subService = currentList.subTitl.find(
       (subService) => subService.id === item.id
     );
     return subService.completed;
-  }, [lists, serv.id]);
+  }, [lists, service.id]);
 
   return (
     <div>
@@ -84,7 +84,7 @@ const SubCard = ({ item, serv }) => {
                 name={item.id}
                 value={item.subtitles}
                 checked={isSelected}
-                onChange={handleChange(serv)}
+                onChange={handleChange(service)}
               />
               <img
                 src={item.img}
@@ -150,4 +150,4 @@ const SubCard = ({ item, serv }) => {
   );
 };
 
-export default SubCard;
+export default SubService;

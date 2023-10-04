@@ -8,7 +8,6 @@ import ServiceCard from './ServiceCard';
 import Modal from './Modal';
 import Spinner from './Spinner';
 import Title from './Title';
-import Stepper from './Stepper';
-import Summary from './Summary';
 
-export { Btn, Container, Error, Footer, Header, Input, ServiceCard, Modal, Spinner, Title , Stepper,Summary }
+
+export { Btn, Container, Error, Footer, Header, Input, ServiceCard, Modal, Spinner, Title }

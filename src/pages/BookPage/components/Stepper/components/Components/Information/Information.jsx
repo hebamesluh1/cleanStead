@@ -1,8 +1,8 @@
 import React from "react";
-import Input from "../../../../Input/Input";
-import { restInputProps } from "../../../../../utils/restInputProps";
-import { useBookContext } from "../../../../../context/BookContext";
-import { InformationInput } from "../../../../../constant/inputData";
+import { restInputProps } from "./../../../../../../../utils/restInputProps";
+import { InformationInput } from "../../../../../../../constant/inputData";
+import {Input} from './../../../../../../../components';
+import { useBookContext } from "../../../../../../../context/BookContext";
 
 const Information = () => {
   const { formik } = useBookContext();

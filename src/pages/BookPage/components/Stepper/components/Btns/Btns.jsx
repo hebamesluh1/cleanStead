@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from "react";
-import { useBookContext } from "../../../../context/BookContext";
-import Btn from "../../../Btn";
+import { useBookContext } from './../../../../../../context/BookContext';
+import Btn from './../../../../../../components/Btn/Btn';
 
 const Btns = () => {
   const { complete, setCurrentStep, currentStep, steps } = useBookContext();

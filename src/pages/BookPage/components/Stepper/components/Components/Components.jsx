@@ -1,8 +1,9 @@
 import React from "react";
-import { useBookContext } from "../../../../context/BookContext";
 import Services from "./Services";
 import Time from "./Time";
 import Information from "./Information";
+
+import { useBookContext } from './../../../../../../context/BookContext';
 
 const StepperComponent = {
   1: Services,

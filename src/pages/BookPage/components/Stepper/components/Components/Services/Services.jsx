@@ -1,7 +1,7 @@
 import React from "react";
-import { servicesType } from "../../../../../mock/data";
-import Card from "./Card";
-import { useBookContext } from "../../../../../context/BookContext";
+import Service from "./Service";
+import { useBookContext } from "../../../../../../../context/BookContext";
+import { servicesType } from "../../../../../../../mock/data";
 
 const Services = () => {
   const { formik } = useBookContext();
@@ -11,11 +11,11 @@ const Services = () => {
         اختر الخدمات التي تحتاج تنظيفها من اي تصنيف تريده{" "}
       </h2>
       <div className="accordion">
-        {servicesType.map((serv) => (
-          <Card
-            serv={serv}
-            subtitle={serv.subTitl}
-            key={serv.id}
+        {servicesType.map((service) => (
+          <Service
+          service={service}
+            subtitle={service.subTitl}
+            key={service.id}
           />
         ))}
       </div>

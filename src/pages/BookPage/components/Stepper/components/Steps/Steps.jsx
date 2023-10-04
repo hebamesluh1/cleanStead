@@ -1,6 +1,6 @@
 import React from "react";
-import { useBookContext } from "../../../../context/BookContext";
 import { BsCheck2 } from "react-icons/bs";
+import { useBookContext } from './../../../../../../context/BookContext';
 
 const Steps = () => {
   const { steps, complete, currentStep } = useBookContext();

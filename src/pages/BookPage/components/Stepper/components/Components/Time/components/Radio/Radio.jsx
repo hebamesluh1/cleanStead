@@ -1,5 +1,5 @@
 import React from "react";
-import Error from "../../../../../../Error";
+import { Error } from "../../../../../../../../../components";
 
 const Radio = ({ name, options, errorMessage, onChange, checked }) => {
   return (

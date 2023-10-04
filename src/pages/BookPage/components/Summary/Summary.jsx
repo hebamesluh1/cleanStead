@@ -1,5 +1,5 @@
 import React from "react";
-import { useBookContext } from "../../context/BookContext";
+import { useBookContext } from "../../../../context/BookContext";
 
 const Summary = () => {
   const { totalPrice, lists } = useBookContext();
@@ -34,7 +34,7 @@ const Summary = () => {
           <h3 className="text-lg text-textColor">الخدمة</h3>
           <ul className="text-lg">
             {serviceTitlesList.length > 0 ? (
-              serviceTitlesList.map((item) => <li>{item}</li>)
+              serviceTitlesList.map((item) => <li key={item}>{item}</li>)
             ) : (
               <li>لم يتم اختيار اي خدمات بعد </li>
             )}

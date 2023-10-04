@@ -1,7 +1,6 @@
 import React from "react";
 import { Title } from "../../components";
-import { Stepper, Summary } from "../../components";
-import BookProvider from "../../context/BookContext";
+import { Stepper, Summary } from "./components";
 
 const BookPage = () => {
   return (
