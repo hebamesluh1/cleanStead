@@ -104,9 +104,9 @@ const Footer = () => {
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13611.525320861896!2d34.38812925011669!3d31.472450438952443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14fd8235ee6b864b%3A0xe4be51342e71e93b!2sAl%20Zahra!5e0!3m2!1sen!2s!4v1695055440500!5m2!1sen!2s"
                     width="100"
                     height="100"
-                    allowfullscreen=""
+                    allowFullScreen=""
                     loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
+                    referrerPolicy="no-referrer-when-downgrade"
                   ></iframe>
                 </div>
               </div>
